@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/admin/css/style.css">
+    <link rel="stylesheet" href="/static/admin/css/paginate.css">
+    <script type="text/javascript" src="/static/common/js/jquery.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/jquery.paginate.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/index.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/My97DatePicker/WdatePicker.js"></script>    
+    <script type="text/javascript">
+    	type = "requit";
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="search">
+			<form action="javascript:;" id="form">
+	        	贷款人姓名:<input type="text" autocomplete="off" id="name" name="name" value="" placeholder="贷款人姓名">&nbsp;&nbsp;
+	        	状           态:
+	        	<select id="status" name="status">
+	        		<option value="">不限</option>
+	        		<option value="0">待处理</option>
+	        		<option value="1">退单成功</option>
+	        		<option value="2">已驳回</option>
+	        	</select>&nbsp;&nbsp;&nbsp;&nbsp;
+	        	<button id="submit">查询</button>	&nbsp;&nbsp;			
+	        	<button id="reset">重置</button>
+			</form>
+        </div>
+        <div class="tab">
+            <table class="man_ztab" border='1'>
+            	<thead id="thead"></thead>
+                <tbody id="tbody"></tbody> 
+            </table>
+        </div>
+			<div class="page">
+				<div id="pageTradeListDiv"></div>
+			</div>        
+    </div>
+    <script type="text/javascript">
+    	$("#reset").click(function() {
+    		$("#name").val("");
+    		$("#status").val("");
+    	});
+    </script>
+</body>
+</html>

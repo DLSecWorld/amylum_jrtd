@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/admin/css/style.css">
+    <link rel="stylesheet" href="/static/admin/css/paginate.css">
+    <script type="text/javascript" src="/static/common/js/jquery.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/jquery.paginate.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/index.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/My97DatePicker/WdatePicker.js"></script>    
+    <script type="text/javascript">
+    	type = "recharge";
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="search">
+			<form action="javascript:;" id="form">
+	        	充值时间:<input type="text" autocomplete="off" id="addTime" name="addTime" value="" placeholder="充值时间" onclick="WdatePicker()">&nbsp;&nbsp;
+	        	用户姓名:<input type="text" id="name" name = "name" autocomplete="off" placeholder="用户姓名">&nbsp;&nbsp;&nbsp;&nbsp;
+	        	<button id="submit">查询</button>	&nbsp;&nbsp;			
+	        	<button id="reset">重置</button>
+			</form>
+        </div>
+        <div class="tab">
+            <table class="man_ztab" border='1'>
+            	<thead id="thead"></thead>
+                <tbody id="tbody"></tbody> 
+            </table>
+        </div>
+			<div class="page">
+				<div id="pageTradeListDiv"></div>
+			</div>        
+    </div>
+    <script type="text/javascript">
+    	$("#reset").click(function() {
+    		$("#addTime").val("");
+    		$("#name").val("");
+    	});
+    </script>
+</body>
+</html>

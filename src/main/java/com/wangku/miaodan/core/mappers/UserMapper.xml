@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangku.miaodan.core.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.wangku.miaodan.core.model.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="identity" jdbcType="VARCHAR" property="identity" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId"/>
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="comp_name" jdbcType="VARCHAR" property="compName" />
+    <result column="comp_tel" jdbcType="VARCHAR" property="compTel" />
+    <result column="micr_mess" jdbcType="VARCHAR" property="micrMess" />
+    <result column="pic_identity" jdbcType="VARCHAR" property="picIdentity" />
+    <result column="pic_identity_back" jdbcType="VARCHAR" property="picIdentityBack" />
+    <result column="pic_card" jdbcType="VARCHAR" property="picCard" />
+    <result column="pic_logo" jdbcType="VARCHAR" property="picLogo" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="times" property="times"/>
+    <result column="td_times" property="tdTimes"/>
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  
+  <insert id="addUser">
+	INSERT INTO jrtd_user_info(mobile)
+	SELECT #{mobile}
+	FROM dual
+	WHERE not exists (select * from jrtd_user_info where mobile = #{mobile})
+  </insert> 
+  
+  <select id="selectByMobile" resultMap="BaseResultMap">
+  	select * from jrtd_user_info where mobile = #{mobile}
+  </select> 
+  
+  <select id="getTimesOfUser" resultType="long">
+  	select 
+  	<if test="isTD">
+  		td_times
+  	</if>
+  	<if test="!isTD">
+  		times
+  	</if>
+  	from jrtd_user_info where mobile = #{mobile}
+  </select>
+  
+  <update id="reduceTimesByMobile">
+  	update jrtd_user_info set 
+  	<if test="isTD">
+  		td_times = td_times - 1
+  	</if>
+  	<if test="!isTD">
+	  	times = times - 1 
+  	</if>
+  	where mobile = #{mobile}
+  </update>
+  
+  <update id="incrTimes">
+  	update jrtd_user_info set times = times + #{times} where mobile = #{mobile}
+  </update>
+  
+  <update id="updateByMobile" parameterType="com.wangku.miaodan.core.model.User">
+  	update jrtd_user_info 
+    <set>
+		<if test="name != null and name != ''">
+			name = #{name},
+		</if>
+		<if test="identity != null and identity != ''">
+			identity = #{identity},
+		</if>
+		<if test="pic != null and pic != ''">
+			pic = #{pic},
+		</if>
+		<if test="city != null and city != ''">
+			city = #{city},
+		</if>
+		<if test="compName != null and compName != ''">
+			comp_name = #{compName},
+		</if>
+		<if test="compTel != null and compTel != ''">
+			comp_tel = #{compTel},
+		</if>
+		<if test="micrMess != null and micrMess != ''">
+			micr_mess = #{micrMess},
+		</if>
+		<if test="picIdentity != null and picIdentity != ''">
+			pic_identity = #{picIdentity},
+		</if>
+		<if test="picIdentityBack != null and picIdentityBack != ''">
+			pic_identity_back = #{picIdentityBack},
+		</if>
+		<if test="picCard != null and picCard != ''">
+			pic_card = #{picCard},
+		</if>
+		<if test="picLogo != null and picLogo != ''">
+			pic_logo = #{picLogo},
+		</if>
+		<if test="times != null and times > 0">
+			times = #{times},
+		</if>
+		<if test="tdTimes != null and tdTimes > 0">
+			td_times = #{tdTimes},
+		</if>
+		<if test="status != null">
+			status = #{status},
+		</if>
+		<if test="reason != null">
+			reason = #{reason},
+		</if>
+		update_time = #{updateTime}
+    </set>
+    where mobile = #{mobile}	
+  </update>
+  
+  <update id="increTimesByRechargeNumber">
+  	update jrtd_user_info 
+  	set times = times + #{jpTimes},
+  	td_times = td_times + #{tdTimes}
+  	where mobile = (select mobile from recharge_info where number = #{number});
+  </update>
+  
+  <update id="addOpenId">
+  	update jrtd_user_info
+  	set open_id = #{opendId}
+  	where mobile = #{mobile}
+  </update>
+  
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+  	select * from jrtd_user_info 
+  	where 1 = 1
+  	<if test="city != null">
+  		and city like CONCAT(#{city}, "%")
+  	</if>
+  	<if test="status != null">
+  		and status = #{status}
+  	</if>
+  	<if test="addTime != null">
+  		and add_time like CONCAT(#{addTime}, "%")
+  	</if>
+  	order by add_time desc
+  	limit #{start}, #{size}
+  </select>
+  
+  <select id="count" resultType="long" parameterType="map">
+  	select count(*) from jrtd_user_info 
+  	where 1 = 1
+  	<if test="city != null">
+  		and city like CONCAT(#{city}, "%")
+  	</if>
+  	<if test="status != null">
+  		and status = #{status}
+  	</if>
+  	<if test="addTime != null">
+  		and add_time like CONCAT(#{addTime}, "%")
+  	</if>  	
+  </select>
+  
+  <update id="updateByPrimaryKey" parameterType="com.wangku.miaodan.core.model.User">
+	update jrtd_user_info set status = #{status}
+	where id = #{id}
+  </update>
+  
+  <update id="increTimesByMobile">
+  	update jrtd_user_info set 
+  	<if test="isTd == 0">
+  		td_times = td_times + 1
+  	</if>
+  	<if test="isTd == 1">
+	  	times = times + 1 
+  	</if>
+  	where mobile = #{mobile}
+  </update>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+  	select * from jrtd_user_info where id = #{id}
+  </select>
+  
+</mapper>

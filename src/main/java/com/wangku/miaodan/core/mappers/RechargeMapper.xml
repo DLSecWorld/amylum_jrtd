@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangku.miaodan.core.dao.RechargeMapper">
+
+	<resultMap id="BaseResultMap" type="com.wangku.miaodan.core.model.Recharge">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="name" property="name"/>
+		<result column="number" jdbcType="VARCHAR" property="number" />
+		<result column="wei_xin_number" jdbcType="VARCHAR" property="weiXinNumber" />
+		<result column="mobile" jdbcType="VARCHAR" property="mobile" />
+		<result column="product" jdbcType="INTEGER" property="product" />
+		<result column="sum" jdbcType="DECIMAL" property="sum" />
+		<result column="pay_success_time" jdbcType="TIMESTAMP" property="paySuccessTime" />
+		<result column="num_product" jdbcType="INTEGER" property="numProduct" />
+		<result column="price" jdbcType="DECIMAL" property="price" />
+		<result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+		<result column="status" property="status"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, number, wei_xin_number, mobile, product, sum, pay_success_time, num_product,
+		price, add_time, status
+	</sql>
+	
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from jrtd_recharge_info
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from jrtd_recharge_info
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	
+	<insert id="insert" parameterType="com.wangku.miaodan.core.model.Recharge" useGeneratedKeys="true" keyProperty="id">
+		insert into jrtd_recharge_info (number, mobile, product, sum, num_product, price)
+		values (#{number}, #{mobile}, #{product}, #{sum}, #{numProduct}, #{price})
+	</insert>
+	
+	<insert id="insertSelective" parameterType="com.wangku.miaodan.core.model.Recharge">
+		insert into jrtd_recharge_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="number != null">
+				number,
+			</if>
+			<if test="weiXinNumber != null">
+				wei_xin_number,
+			</if>
+			<if test="mobile != null">
+				mobile,
+			</if>
+			<if test="product != null">
+				product,
+			</if>
+			<if test="sum != null">
+				sum,
+			</if>
+			<if test="paySuccessTime != null">
+				pay_success_time,
+			</if>
+			<if test="numProduct != null">
+				num_product,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+			<if test="addTime != null">
+				add_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="number != null">
+				#{number,jdbcType=VARCHAR},
+			</if>
+			<if test="weiXinNumber != null">
+				#{weiXinNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="mobile != null">
+				#{mobile,jdbcType=VARCHAR},
+			</if>
+			<if test="product != null">
+				#{product,jdbcType=INTEGER},
+			</if>
+			<if test="sum != null">
+				#{sum,jdbcType=DECIMAL},
+			</if>
+			<if test="paySuccessTime != null">
+				#{paySuccessTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="numProduct != null">
+				#{numProduct,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				#{price,jdbcType=DECIMAL},
+			</if>
+			<if test="addTime != null">
+				#{addTime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.wangku.miaodan.core.model.Recharge">
+		update jrtd_recharge_info
+		<set>
+			<if test="number != null">
+				number = #{number,jdbcType=VARCHAR},
+			</if>
+			<if test="weiXinNumber != null">
+				wei_xin_number = #{weiXinNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="mobile != null">
+				mobile = #{mobile,jdbcType=VARCHAR},
+			</if>
+			<if test="product != null">
+				product = #{product,jdbcType=INTEGER},
+			</if>
+			<if test="sum != null">
+				sum = #{sum,jdbcType=DECIMAL},
+			</if>
+			<if test="paySuccessTime != null">
+				pay_success_time = #{paySuccessTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="numProduct != null">
+				num_product = #{numProduct,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=DECIMAL},
+			</if>
+			<if test="addTime != null">
+				add_time = #{addTime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.wangku.miaodan.core.model.Recharge">
+		update jrtd_recharge_info
+		set number = #{number,jdbcType=VARCHAR},
+		wei_xin_number = #{weiXinNumber,jdbcType=VARCHAR},
+		mobile = #{mobile,jdbcType=VARCHAR},
+		product = #{product,jdbcType=INTEGER},
+		sum = #{sum,jdbcType=DECIMAL},
+		pay_success_time = #{paySuccessTime,jdbcType=TIMESTAMP},
+		num_product = #{numProduct,jdbcType=INTEGER},
+		price = #{price,jdbcType=DECIMAL},
+		add_time = #{addTime,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<update id="reduceLimitByMobile">
+		update jrtd_recharge_info set times = times - 1 where mobile = #{mobile}
+	</update>
+
+	<select id="getLimitOfUser" resultType="long">
+		select times from jrtd_recharge_info where mobile = #{mobile}
+	</select>
+	
+	<select id="getDetailByIdAndMobile" resultMap="BaseResultMap">
+		select * from jrtd_recharge_info 
+		where id = #{id} and mobile = #{mobile}
+	</select>
+	
+	<update id="updateStatusByNumber">
+		update jrtd_recharge_info
+		set status = #{status}
+		where number = #{number}
+	</update>
+	
+	<select id="getdetailByNumber" resultMap="BaseResultMap">
+		select * from jrtd_recharge_info where number = #{number};
+	</select>
+	
+	<select id="list" resultMap="BaseResultMap" parameterType="map">
+		select rei.id, rei.mobile, rei.product, rei.sum, 
+		       rei.num_product, rei.status, rei.add_time, 
+		       rei.failer_resone, ui.name 
+		from jrtd_recharge_info  rei
+		LEFT JOIN jrtd_user_info ui
+		ON ui.mobile = rei.mobile
+		where (rei.status = 2 or rei.status = 3)
+		<if test="addTime != null">
+			and rei.add_time like CONCAT(#{addTime}, "%")
+		</if>
+		<if test="name != null">
+			and ui.name = #{name}
+		</if>
+		order by rei.add_time desc 
+		limit #{start}, #{size}
+	</select>
+	
+	<select id="count" resultType="long" parameterType="map">
+		select count(*) from jrtd_recharge_info 
+		where (status = 2 or status = 3)
+		<if test="addTime != null">
+			and add_time like CONCAT(#{addTime}, "%")
+		</if>
+		<if test="name != null">
+			and mobile in (select mobile from user_info where name like CONCAT(#{name}, "%"))
+		</if>		
+	</select>
+	
+</mapper>

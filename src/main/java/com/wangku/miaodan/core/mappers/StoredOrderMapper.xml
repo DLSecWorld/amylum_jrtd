@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangku.miaodan.core.dao.StoredOrderMapper">
+  <resultMap id="BaseResultMap" type="com.wangku.miaodan.core.model.StoredOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="is_td" property="isTd"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, mobile, order_id, add_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jrtd_order_stored
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from jrtd_order_stored
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wangku.miaodan.core.model.StoredOrder">
+    insert into jrtd_order_stored (mobile, order_id, is_td)
+    values (#{mobile,jdbcType=VARCHAR}, #{orderId,jdbcType=BIGINT}, #{isTd})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wangku.miaodan.core.model.StoredOrder">
+    insert into jrtd_order_stored
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wangku.miaodan.core.model.StoredOrder">
+    update jrtd_order_stored
+    <set>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wangku.miaodan.core.model.StoredOrder">
+    update jrtd_order_stored
+    set mobile = #{mobile,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=BIGINT},
+      add_time = #{addTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="detail" resultMap="BaseResultMap">
+  	select jrtd_order_stored.* from jrtd_order_stored 
+	LEFT JOIN jrtd_user_info 
+    on jrtd_user_info.id = #{userId}
+  	where jrtd_order_stored.order_id = #{orderId}
+  </select>
+</mapper>

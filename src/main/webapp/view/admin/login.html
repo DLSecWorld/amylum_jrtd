@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>登录</title>
+	<link href="/static/admin/css/base.css" rel="stylesheet" type="text/css">
+	<link href="/static/admin/css/login.css" rel="stylesheet" type="text/css">	
+	<script src="/static/common/js/jquery.min.js"></script>
+</head>
+<body>
+	<!--head end-->
+	<div class="wrapper_login">
+		<div class="cont">
+			<h2></h2>
+			<form id="fm1" class="formbox" action="/admin/login" method="post">
+				<ul class="logink">
+					<li>
+						<label>用户名：</label>  
+						<input id="username" name="username" class="text" tabindex="1" accesskey="n" type="text" value="${username!''}" size="25" autocomplete="false">
+					</li>
+					<li>
+						<label>密码：</label> 
+						<input id="password" name="password" class="text" tabindex="2" type="password" value="" size="25" autocomplete="off">
+					</li>
+					<li><input class="btn_dl" name="submit" accesskey="l" value="登录" tabindex="4" type="submit" onclick="checkRsaSubmit()"></li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

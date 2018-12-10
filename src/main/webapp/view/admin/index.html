@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/admin/css/style.css">
+    <link rel="stylesheet" href="/static/admin/css/paginate.css">
+    <script type="text/javascript" src="/static/common/js/jquery.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/jquery.paginate.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/index.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/My97DatePicker/WdatePicker.js"></script>    
+    <script type="text/javascript">
+    	type = "${type!'user'}";
+    </script>
+</head>
+<body>
+    <div class="box">
+<!--         <ul class="nav">
+            <li data-type="user" class="nav_li flag">用户列表</li>
+            <li data-type="product" class="nav_li">商品列表</li>
+            <li data-type="recharge-log" class="nav_li">充值记录列表</li>
+            <li data-type="requit" class="nav_li">申退列表</li>
+        </ul> -->
+        <div class="search">
+			<form action="javascript:;">
+	        	注册时间:<input type="text" autocomplete="off" id="addTime" name="addtime" value="" placeholder="注册时间" onclick="WdatePicker()">&nbsp;&nbsp;
+	        	状       态:
+	        	<select id="status">
+	        		<option value="-1">不限</option>
+	        		<option value="0">未认证</option>
+	        		<option value="1">审核中</option>
+	        		<option value="2">已通过</option>
+	        		<option value="3">未通过</option>
+	        	</select>
+	        	注册城市:<input type="text" id="city" autocomplete="off" placeholder="注册城市">&nbsp;&nbsp;
+	        	<button id="submit">查询</button>				
+	        	<button id="reset">重置</button>
+			</form>
+        </div>
+        <div class="tab">
+            <table class="man_ztab" border='1'>
+            	<thead id="thead"></thead>
+                <tbody id="tbody"></tbody> 
+            </table>
+        </div>
+			<div class="page">
+				<div id="pageTradeListDiv"></div>
+			</div>        
+    </div>
+    <script type="text/javascript">
+    	$("#submit").click(function() {
+    		console.log($("#addTime").val());
+    		console.log($("#status").val());
+    		console.log($("#city").val());
+    	});
+    	
+    	$("#reset").click(function() {
+    		$("#addTime").val("");
+    		$("#status").val("");
+    		$("#city").val("");    		
+    	});
+    </script>
+</body>
+</html>

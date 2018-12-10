@@ -1,0 +1,1048 @@
+<html class="pixel-ratio-1">
+<head>
+<title>今日推单</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="/static/common/img/favicon.ico">
+<link href="/static/common/css/font-awesome.min.css" rel="stylesheet">
+<link href="/static/common/css/jquery-weui.min.css" rel="stylesheet">
+<link href="/static/common/css/weui.min.css" rel="stylesheet">
+<link href="/static/common/css/verify.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/common/css/iosSelect.css">
+<style>
+* {
+	box-sizing: border-box;
+}
+
+html, body, #app {
+	font-size: 20px;
+	height: 100%
+}
+
+html, body {
+	line-height: 1.6 !important
+}
+
+.weui-toast {
+	margin-left: 0 !important;
+}
+
+#cnzz_stat_icon_1271494136 {
+	display: none;
+}
+
+.detail-header {
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: 400;
+	background: #1676e3;
+	color: #fff;
+	position: fixed;
+	width: 100vw;
+	top: 0;
+	z-index: 1;
+}
+
+.detail-header i {
+	color: #fff;
+}
+._v-container[data-v-ecaca2b0] {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none
+}
+
+._v-container>._v-content[data-v-ecaca2b0] {
+	width: 100%;
+	-webkit-transform-origin: left top;
+	-webkit-transform: translateZ(0);
+	-moz-transform-origin: left top;
+	-moz-transform: translateZ(0);
+	-ms-transform-origin: left top;
+	-ms-transform: translateZ(0);
+	-o-transform-origin: left top;
+	-o-transform: translateZ(0);
+	transform-origin: left top;
+	transform: translateZ(0)
+}
+
+._v-container>._v-content>.pull-to-refresh-layer[data-v-ecaca2b0] {
+	width: 100%;
+	height: 60px;
+	margin-top: -60px;
+	text-align: center;
+	font-size: 16px;
+	color: #aaa
+}
+
+._v-container>._v-content>.loading-layer[data-v-ecaca2b0] {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 60px;
+	color: #aaa;
+	position: relative
+}
+
+._v-container>._v-content>.loading-layer>.no-data-text[data-v-ecaca2b0]
+	{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1
+}
+
+._v-container>._v-content>.loading-layer>.no-data-text[data-v-ecaca2b0],
+	._v-container>._v-content>.loading-layer>.spinner-holder[data-v-ecaca2b0]
+	{
+	opacity: 0;
+	transition: opacity .15s linear;
+	-webkit-transition: opacity .15s linear
+}
+
+._v-container>._v-content>.loading-layer>.no-data-text.active[data-v-ecaca2b0],
+	._v-container>._v-content>.loading-layer>.spinner-holder.active[data-v-ecaca2b0]
+	{
+	opacity: 1
+}
+
+._v-container>._v-content>.loading-layer .spinner-holder[data-v-ecaca2b0],
+	._v-container>._v-content>.pull-to-refresh-layer .spinner-holder[data-v-ecaca2b0]
+	{
+	text-align: center;
+	-webkit-font-smoothing: antialiased
+}
+
+._v-container>._v-content>.loading-layer .spinner-holder .arrow[data-v-ecaca2b0],
+	._v-container>._v-content>.pull-to-refresh-layer .spinner-holder .arrow[data-v-ecaca2b0]
+	{
+	width: 20px;
+	height: 20px;
+	margin: 8px auto 0;
+	-webkit-transform: translateZ(0) rotate(0deg);
+	transform: translateZ(0) rotate(0deg);
+	transition: transform .2s linear
+}
+
+._v-container>._v-content>.loading-layer .spinner-holder .text[data-v-ecaca2b0],
+	._v-container>._v-content>.pull-to-refresh-layer .spinner-holder .text[data-v-ecaca2b0]
+	{
+	display: block;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 20px;
+	color: #aaa
+}
+
+._v-container>._v-content>.loading-layer .spinner-holder .spinner[data-v-ecaca2b0],
+	._v-container>._v-content>.pull-to-refresh-layer .spinner-holder .spinner[data-v-ecaca2b0]
+	{
+	margin-top: 14px;
+	width: 32px;
+	height: 32px;
+	fill: #444;
+	stroke: #69717d
+}
+
+._v-container>._v-content>.pull-to-refresh-layer.active .spinner-holder .arrow[data-v-ecaca2b0]
+	{
+	-webkit-transform: translateZ(0) rotate(180deg);
+	transform: translateZ(0) rotate(180deg)
+}
+#restaurant[data-v-7ad21634] {
+	background: #f5f5f5;
+	height: 100%
+}
+
+._v-container[data-v-7ad21634] {
+	background: #f5f5f5;
+	padding-top: 80px;
+	height: calc(100% - 55px) !important
+}
+
+._v-content[data-v-7ad21634] {
+	padding-bottom: 54px
+}
+
+.header[data-v-7ad21634] {
+	position: fixed;
+	z-index: 1;
+	width: 100vw;
+	height: 40px;
+	background: #fff
+}
+
+.header-btn[data-v-7ad21634] {
+	margin: 5px auto;
+	width: 8rem;
+	height: 1.5rem;
+	border-radius: 5px;
+	border: 1px solid #1676e3;
+	background: #fff;
+	position: relative
+}
+
+.inner-btn[data-v-7ad21634] {
+	width: 4rem;
+	display: inline-block;
+	font-size: .8rem;
+	height: 1.4rem;
+	line-height: 1.4rem;
+	position: absolute;
+	text-align: center;
+	font-weight: 400;
+	color: #7d7d7d
+}
+
+.active_btn[data-v-7ad21634] {
+	background: #1676e3;
+	color: #f5f5f5
+}
+
+.left_btn[data-v-7ad21634] {
+	left: 0
+}
+
+.right_btn[data-v-7ad21634] {
+	right: 0
+}
+
+nav[data-v-7ad21634] {
+	width: 100vw;
+	height: 35px;
+	line-height: 35px;
+	background: #fff;
+	position: fixed;
+	top: 40px;
+	border-top: 1px solid #d9d9d9;
+	z-index: 1;
+	font-size: .8rem;
+	color: #7d7d7d;
+	font-weight: 400
+}
+
+.nav-tab[data-v-7ad21634] {
+	display: inline-block;
+	width: 21%;
+	text-align: center;
+	height: 35px
+}
+
+.nav-tab2[data-v-7ad21634] {
+	display: inline-block;
+	width: 8%;
+	text-align: center;
+	height: 35px
+}
+
+.active_tab[data-v-7ad21634] {
+	border-bottom: 2px solid #1676e3;
+}
+
+.moreTab[data-v-7ad21634] {
+	width: 100vw;
+	height: 5rem;
+	background: #5d5d5d;
+	opacity: .8;
+	padding: 1.2rem 0;
+	text-align: center
+}
+
+.moreTab .active_Moretab[data-v-7ad21634] {
+	background: #1676e3;
+	color: #fff;
+	outline: none
+}
+
+.moreTab button[data-v-7ad21634] {
+	width: 3.5rem;
+	height: 2rem;
+	font-size: .7rem;
+	color: #fff;
+	margin: 5px .8rem;
+	background: #5d5d5d;
+	opacity: .9;
+	border: 1px solid #ddd;
+	border-radius: 5px
+}
+
+.swiper-container[data-v-7ad21634] {
+	height: 4.8rem
+}
+
+#restaurant a.weui-cell[data-v-7ad21634] {
+	padding: 8px 15px
+}
+
+#restaurant .weui-cell__hd[data-v-7ad21634] {
+	margin-right: 4px
+}
+
+#restaurant .weui-cell__hd img[data-v-7ad21634] {
+	width: 40px;
+	height: 40px
+}
+
+#restaurant .weui-cell__bd[data-v-7ad21634] {
+	position: relative
+}
+
+.wxloan[data-v-7ad21634] {
+	position: absolute;
+	width: 3.4em;
+	height: 2em;
+	top: 0;
+	left: 3.5em
+}
+
+#restaurant .weui-cell__bd p[data-v-7ad21634] {
+	font-size: 16px;
+	font-weight: 400;
+	color: #7d7d7d
+}
+
+.cell-top[data-v-7ad21634] {
+	vertical-align: middle
+}
+
+.cell-top[data-v-7ad21634]:after {
+	content: ""
+}
+
+#restaurant .seller-name[data-v-7ad21634] {
+	display: inline-block;
+	font-weight: 800;
+	font-size: 16px;
+	color: #5a5a5a;
+	vertical-align: middle
+}
+
+.seller-tag[data-v-7ad21634] {
+	display: inline-block;
+	margin-left: 10px;
+	height: 20px;
+	line-height: 15px;
+	border-radius: 0;
+	border: 1px solid #1676e3;
+}
+
+.seller-tag span[data-v-7ad21634] {
+	padding: 0 5px;
+	font-size: 12px;
+	font-weight: 400;
+	color: #1676e3;
+	vertical-align: middle
+}
+
+.seller-info[data-v-7ad21634] {
+	margin-right: 10px;
+	font-weight: 700
+}
+
+.seller-info2[data-v-7ad21634] {
+	margin-right: 10px
+}
+
+.seller-info3[data-v-7ad21634] {
+	margin-left: 10px
+}
+
+.seller-bottom .weui-cell__ft[data-v-7ad21634] {
+	width: 5em;
+	height: 2.5em;
+	line-height: 2.5em;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 20px 0 0 20px;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto
+}
+
+.seller-bottom[data-v-7ad21634] {
+	position: relative
+}
+
+.cando[data-v-7ad21634] {
+	background: #1676e3;
+	color: #fff
+}
+
+.cannotdo[data-v-7ad21634] {
+	background: #ccc;
+	color: #fff
+}
+
+.seller-wxloan[data-v-7ad21634] {
+	float: right;
+	color: #20e2de;
+	margin-right: 25px
+}
+
+.seller-time[data-v-7ad21634] {
+	float: right
+}
+
+.picker-wrap[data-v-7ad21634] {
+	height: 38px;
+	display: -moz-box;
+	display: -webkit-box;
+	-webkit-box-orient: horizontal
+}
+
+.city-picker[data-v-7ad21634] {
+	width: 5.3em;
+	line-height: 30px;
+	padding-left: 10px;
+	border-radius: 0 10px 10px 0
+}
+
+.city-picker[data-v-7ad21634], .screen[data-v-7ad21634] {
+	-webkit-box-flex: 1;
+	height: 30px;
+	position: fixed;
+	top: 5px;
+	background: #fff;
+	color: #1676e3;
+	z-index: 2;
+	font-size: 16px
+}
+
+.screen[data-v-7ad21634] {
+	padding-right: 10px;
+	right: 0;
+	border-radius: 15px 0 0 15px
+}
+
+.screen button[data-v-7ad21634] {
+	height: 100%;
+	border: none;
+	background-color: #fff;
+	color: #1676e3;
+	border-radius: 0 15px 15px 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 16px
+}
+
+#restaurant .city-picker i[data-v-7ad21634], #restaurant .screen i[data-v-7ad21634]
+	{
+	color: #1676e3;
+}
+
+.city-picker span[data-v-7ad21634] {
+	color: #1676e3;
+	font-size: 16px;
+	font-weight: 400
+}
+
+input[data-v-7ad21634]::-webkit-input-placeholder {
+	text-align: center;
+	color: #1676e3;
+}
+
+.seller-picker[data-v-7ad21634] {
+	width: 0;
+	-webkit-box-flex: 2;
+	border-radius: 20px;
+	margin: 4px
+}
+
+a.menu[data-v-7ad21634] {
+	background: #fff;
+	display: block;
+	margin-top: 5px;
+	position: relative;
+	overflow: hidden
+}
+
+.menu .tag[data-v-7ad21634] {
+	width: 4.2rem;
+	height: 4.2rem;
+	position: absolute;
+	background: #2a5fa3;
+	top: -50px;
+	right: -50px;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	z-index: 2;
+	-webkit-box-shadow: 10px 4px 5px #888;
+	box-shadow: 10px 4px 5px #888
+}
+
+.menu .tag span[data-v-7ad21634] {
+	position: absolute;
+	bottom: 0;
+	display: block;
+	width: 4.2rem;
+	font-size: .7rem;
+	font-weight: 400;
+	color: #fff;
+	text-align: center
+}
+
+#restaurant i[data-v-7ad21634] {
+	color: #cecece
+}
+#footer[data-v-5247103c] {
+	position: fixed
+}
+
+#footer a[data-v-5247103c] {
+	border-left: 0 solid #c0bfc4
+}
+
+#footer a[data-v-5247103c]:first-child {
+	border-left: none
+}
+
+.weui-tabbar__icon[data-v-5247103c] {
+	width: 100%;
+	height: 24px;
+	position: relative
+}
+
+#footer .weui-tabbar__label[data-v-5247103c] {
+	font-size: 14px;
+	font-weight: 400
+}
+
+.router-link-active .weui-tabbar__icon>i[data-v-5247103c],
+	.router-link-active .weui-tabbar__label[data-v-5247103c], i.weui-tabbar__icon[data-v-5247103c]
+	{
+	color: #1676e3;
+}
+
+.fire[data-v-5247103c] {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	top: 0;
+	right: 18px
+}
+#order-detail[data-v-5af10e42] {
+	background: #f5f3f3;
+	height: 100%
+}
+
+#order-detail .detail-header span[data-v-5af10e42] {
+	position: absolute;
+	right: 20px
+}
+
+#order-detail .userImg[data-v-5af10e42] {
+	position: absolute;
+	right: 10px;
+	top: 0;
+	width: 6em;
+	height: 7.2rem
+}
+
+#order-detail .userImg img[data-v-5af10e42] {
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 20px;
+	margin: auto
+}
+
+#order-detail .userImg .hasChecked[data-v-5af10e42] {
+	font-size: 14px;
+	font-weight: 400;
+	color: #717171;
+	position: absolute;
+	bottom: 11px
+}
+
+#order-detail .regTime[data-v-5af10e42] {
+	font-size: 14px;
+	font-weight: 400;
+	color: #717171;
+	position: absolute;
+	right: 1em;
+	bottom: .8em
+}
+
+#order-detail .userImg .hasChecked i[data-v-5af10e42] {
+	color: #1676e3;
+}
+
+#order-detail .weui-cells[data-v-5af10e42] {
+	margin-top: 10px;
+	font-size: 16px;
+	line-height: 1.6
+}
+
+#order-detail .user-info[data-v-5af10e42] {
+	margin-top: 0;
+	height: 7.2rem
+}
+
+#order-detail .user-info a[data-v-5af10e42] {
+	position: relative
+}
+
+#order-detail .main_list[data-v-5af10e42] {
+	padding-top: 40px;
+	padding-bottom: 54px
+}
+
+#order-detail .user-info p[data-v-5af10e42] {
+	height: 1.2rem
+}
+
+#order-detail .weui-cell__bd p[data-v-5af10e42] {
+	font-size: 14px;
+	font-weight: 400;
+	color: #717171;
+	padding-left: 10px
+}
+
+#order-detail .weui-cell__bd .seller-company[data-v-5af10e42] {
+	font-size: 20px;
+	color: #818181;
+	padding: 10px;
+	width: 70%;
+	height: 2.5rem
+}
+
+#order-detail .seller-name[data-v-5af10e42] {
+	font-size: 16px;
+	color: #4a4a4a
+}
+
+#order-detail .seller-job[data-v-5af10e42] {
+	margin-left: 10px
+}
+
+#order-detail .money-detail[data-v-5af10e42] {
+	border-top: 1px solid #ececec;
+	font-size: 14px;
+	position: relative;
+	height: 4em
+}
+
+#order-detail .mobile-detail[data-v-5af10e42] {
+	border-top: 1px solid #ececec;
+	font-size: 14px;
+	position: relative;
+	height: 3em;
+	line-height: 3em
+}
+
+#order-detail .orderingMoney[data-v-5af10e42] {
+	font-size: 16px;
+	color: #00a0dc
+}
+
+#order-detail .sellerDate[data-v-5af10e42] {
+	margin-right: 4em;
+	color: #717171
+}
+
+#order-detail .orderingTag[data-v-5af10e42] {
+	font-size: 14px;
+	color: #00a0dc
+}
+
+#order-detail .orderingMobile[data-v-5af10e42] {
+	font-size: 14px
+}
+
+#order-detail .mobile-detail i[data-v-5af10e42] {
+	font-size: 18px
+}
+
+#order-detail .contact i[data-v-5af10e42] {
+	border-left: 1px solid #ccc
+}
+
+#order-detail .contact[data-v-5af10e42] {
+	font-size: 18px;
+	position: absolute;
+	right: 0;
+	top: 0
+}
+
+#order-detail .food-detail[data-v-5af10e42] {
+	background-color: #f9f9f9;
+	margin-bottom: 4px
+}
+
+#order-detail .food-detail[data-v-5af10e42]:last-child {
+	margin-bottom: 0
+}
+
+#order-detail .food-detail[data-v-5af10e42]:before {
+	border: none
+}
+
+#order-detail li[data-v-5af10e42] {
+	list-style: none
+}
+
+#order-detail img.res-img[data-v-5af10e42] {
+	width: 30px;
+	height: 30px
+}
+
+#order-detail .food-img[data-v-5af10e42] {
+	width: 60px;
+	height: 60px;
+	margin-right: 10px
+}
+
+#order-detail .food-num[data-v-5af10e42] {
+	color: #9d9d9d
+}
+
+#order-detail .food-sum[data-v-5af10e42] {
+	color: #717171;
+	font-size: 14px;
+	font-weight: 400
+}
+
+#remack[data-v-5af10e42] {
+	margin: 10px
+}
+
+#remack .add-remack[data-v-5af10e42] {
+	font-size: 15px
+}
+
+#remack textarea[data-v-5af10e42] {
+	width: 100%;
+	height: 80px;
+	margin-top: 5px;
+	padding: 8px;
+	resize: none;
+	border-color: #ececec;
+	background-color: #fbfbfb;
+	font-size: 14px;
+	outline: none
+}
+
+#remack ul[data-v-5af10e42] {
+	margin: 0 -20px 0 0;
+	padding: 4px 0
+}
+
+#remack li[data-v-5af10e42] {
+	list-style: none;
+	margin-bottom: 4px;
+	border: 1px solid #ececec;
+	float: left;
+	margin-right: 15px;
+	text-align: center
+}
+
+#remack li span[data-v-5af10e42] {
+	padding: 4px;
+	font-size: 8px;
+	color: #999;
+	line-height: 2
+}
+
+#remacked[data-v-5af10e42] {
+	margin: 10px 0;
+	padding: 0 15px;
+	font-size: 15px
+}
+
+#order-detail .btn-wrap[data-v-5af10e42] {
+	height: 30px;
+	margin: 10px 10px 36px 0;
+	position: relative
+}
+
+#order-detail .btn-wrap button[data-v-5af10e42] {
+	width: 80px;
+	height: 30px;
+	background-color: #00a0dc;
+	color: #fff;
+	font-weight: 700;
+	outline: none
+}
+
+#order-detail .btn-wrap .pay[data-v-5af10e42] {
+	position: absolute;
+	left: 45%
+}
+
+#order-detail .btn-wrap .close[data-v-5af10e42] {
+	position: absolute;
+	left: 74%
+}
+
+.weui-cell__hd img[data-v-5af10e42] {
+	display: block;
+	margin-right: 5px;
+	width: 50px
+}
+
+.main_list .fa-fw[data-v-5af10e42] {
+	color: #1676e3;
+}
+#topup-detail, .content {
+	background: #f5f3f3
+}
+
+#topup-detail {
+	height: 100vh
+}
+
+#topup-detail .detail-header .back {
+	position: absolute;
+	top:10px;
+	left: 5px
+}
+
+#topup-detail .detail-header .sub {
+	position: absolute;
+	right: 20px
+}
+
+#topup-detail .weui-msg {
+	margin-top: 34px;
+	padding: 20px 0;
+	background: #1676e3;
+}
+
+#topup-detail .weui-msg__desc {
+	color: #fff;
+	font-weight: 400
+}
+
+#topup-detail .weui-msg__title {
+	margin-bottom: 15px;
+	font-weight: 400;
+	font-size: 25px;
+	color: #fff
+}
+
+#topup-detail .weui-cells, #topup-detail .weui-grids {
+	margin-top: 40px;
+	font-size: 12px;
+	font-weight: 400;
+	background: #f5f5f5
+}
+
+#topup-detail .weui-cell {
+	background: #fff
+}
+
+/* #topup-detail .weui-grid .weui-check__label {
+	padding: 20px 15px
+} */
+
+#topup-detail .weui-cell__hd {
+	width: 5vw;
+	margin-right: 5px
+}
+
+#topup-detail .weui-grid {
+	position: relative;
+	background: #fff;
+    height: 16vh;
+	padding: 1px
+}
+
+#topup-detail .weui-grid i {
+	position: absolute;
+	top: 0
+}
+
+.weui-icon-success-no-circle {
+	font-size: 23px;
+	color: #fff
+}
+
+#topup-detail .checked {
+	position: relative;
+	background: #1676e3;
+	color: #fff;
+	height: -webkit-fill-available;
+}
+
+#topup-detail .weui-grid .checked .weui-grid__label {
+	color: #fff
+}
+
+#topup-detail .weui-btn {
+	background: #1676e3;
+	width: 90vw;
+	height: 6vh;
+	line-height: 6vh
+}
+
+#topup-detail .weui-cell-foot {
+	background: #ececec;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-weight: 400
+}
+
+.checkMb {
+	font-size: 15px
+}
+
+.weui-cell {
+    padding: 10px 15px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: block;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.display_flex{
+	display: flex;
+}
+
+</style>
+</head>
+<body>
+	<div id="app">
+		<div id="topup-detail" class="content">
+			<div class="detail-header">
+				<span class="back"><i class="fa fa-chevron-left fa-fw"></i></span> 充值协议 <span class="sub"></span>
+			</div>
+			<div class = "weui-grids weui-cells_radio">
+<p style="text-align: center;">
+    <span style=";font-family:微软雅黑;font-size:15px"><span style="font-family:微软雅黑">充值协议</span></span>
+</p>
+<p>
+    <span style=";font-family:Tahoma;font-size:15px">&nbsp;</span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px"><span style="font-family:微软雅黑">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石家庄传驰科技有限公司（以下简称</span>“传驰科技”）开发运营产品：“今日推单”（以下简称“我们”），使用我们平台服务前请您仔细阅读本协议条款。</span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px"><span style="font-family:微软雅黑">一、充值介绍</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-family:微软雅黑">、精品券、淘单券是一种虚拟货币，用于“今日推单”内抢单使用。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<span style="font-family:微软雅黑">、 您一旦充值成功，即交易完成，我们将不提供任何更改、修正服务，充值成功的抢单金券不会过期、不可退款、不可提现或转赠他人。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<span style="font-family:微软雅黑">、如果您未通过实名认证，请在“个人中心”“实名认证”里提交资料，资料提交后，等待审核。只有审核通过后，才可以正常使用抢单券抢单。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4<span style="font-family:微软雅黑">、在充值时请确认自己的账号，若因自身输入账号错误、操作不当等因素导致充错账号等情形而损害自身权益，您不得因此要求“今日推单”作任何补偿或赔偿。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<span style="font-family:微软雅黑">、 如出现无法充值、充值失败等问题，详请请在“个人中心”“关于我们”联系客服反馈问题。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6<span style="font-family:微软雅黑">、充值仅支持“今日推单”微信公众号商户端进行点击充值，其他对私、银行转账等任何支付形式概不支持。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px"><span style="font-family:微软雅黑">二、信贷经理抢到客户后不能做以下事情和处理方式</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-family:微软雅黑">、不得以“今日推单”名义威胁客户，不得向客户索要退费。 若违反以上一条，直接取消会员资格，停止相关抢单，所充值费用不得退返。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<span style="font-family:微软雅黑">、 您与用户服务过程中的任何行为或者纠纷由您本人负责，我们不因此承担任何补偿或者赔偿。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<span style="font-family:微软雅黑">、 您在服务过程中的行为涉嫌违法犯罪的，我们有权将您所有信息提供给相关部门协助调查。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px"><span style="font-family:微软雅黑">三、服务变更、中断或终止</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-family:微软雅黑">、 如因升级的需要而需暂停网络服务、或调整服务内容，我们将尽可能在网站上进行通告。由于用户未能及时浏览通告而造成的损失，我们不承担任何责任。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 <span style="font-family:微软雅黑">、您明确同意，我们保留根据实际情况随时调整传驰科技提供的服务内容、种类和形式，或自行决定授权第三方向您提供原本我们提供的服务。因业务调整给您或其他用户造成的损失，我们不承担任何责任。同时，我们保留随时变更、中断或终止传驰科技全部或部分服务的权利。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<span style="font-family:微软雅黑">、 发生下列任何一种情形，我们有权单方面中断或终止向您提供服务而无需通知您，且无需对您或第三方承担任何责任：</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)<span style="font-family:微软雅黑">您提供的个人资料不真实；</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)<span style="font-family:微软雅黑">您违反本服务条款；</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)<span style="font-family:微软雅黑">未经我们书面同意，将“今日推单”平台用于商业目的。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 <span style="font-family:微软雅黑">、您可随时通知我们终止向您提供服务或直接取消今日推单平台服务。自您终止或取消服务之日起，我们不再向您承担任何形式的责任。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px"><span style="font-family:微软雅黑">四、特别约定</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-family:微软雅黑">、 您使用本服务的行为若有任何违反国家法律法规或侵犯任何第三方的合法权益的情形时，我们有权直接删除该等违反规定之信息，并可以暂停或终止向您提供服务。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 <span style="font-family:微软雅黑">、若您利用传驰科技服务从事任何违法或侵权行为，由您自行承担全部责任，因此给我们或任何第三方造成任何损失，您应负责全额赔偿，并使我们免受由此产生的任何损害。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<span style="font-family:微软雅黑">、 您同意我们通过重要页面的公告、通告、电子邮件以及常规信件的形式向您传送与传驰科技服务有关的任何通知和通告。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 <span style="font-family:微软雅黑">、本服务条款之效力、解释、执行均适用中华人民共和国法律。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 <span style="font-family:微软雅黑">、如就本协议内容或其执行发生任何争议，应尽量友好协商解决；协商不成时，任何一方均可向传驰科技所在地的人民法院提起诉讼。</span></span>
+</p>
+<p>
+    <span style=";font-family:微软雅黑;font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 <span style="font-family:微软雅黑">、本服务条款中的标题仅为方便而设，不影响对于条款本身的解释。本服务条款最终解释权归传驰科技所有。</span></span>
+</p>
+<p>
+    <br/>
+</p>
+			</div>
+			<div class="weui-cell weui-cell-foot">
+				<a href="javascript:;" class="weui-btn weui-btn_primary">接受协议</a>
+			</div>			
+		</div>
+	</div>
+	<script src="/static/common/js/jquery.min.js"></script>
+	<script src="/static/common/js/polyfill.min.js"></script>
+	<script src="/static/common/js/jquery-weui.min.js"></script>
+	<script src="/static/common/js/areaData.js"></script>
+	<script src="/static/common/js/iosSelect.js"></script>
+	<script src="/static/common/js/fastclick.js"></script>
+	<script src="/static/common/js/jweixin-1.0.0.js"></script>
+	<script>
+		$(function() {
+			$(".fa-chevron-left").click(function() {
+				window.location.href = "/user/recharge";
+			});
+			$(".weui-btn_primary").click(function() {
+				window.location.href = "/user/recharge";
+			});
+		});		
+	</script>
+</body>
+</html>

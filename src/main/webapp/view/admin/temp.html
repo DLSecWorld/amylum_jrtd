@@ -1,0 +1,64 @@
+<html class="panel-fit">
+<head>
+	<title>后台管理</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/admin_base.css">
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/icon.css">
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/manager-admin.css">
+	<script type="text/javascript" src="/static/common/js/jquery.js"></script>  
+	<script type="text/javascript">
+		function onMenu(url, ele, str) {
+			ele.siblings().attr("class", "manger_acc_first_menu")
+			ele.attr("class", "manger_acc_first_menu_on");
+			$(".span_position").text("欢迎来到后台管理中心>>" + str);
+			$("#sys_main_tabs_iframe").empty();
+			$("#sys_main_tabs_iframe").attr("src", url)
+		}
+	</script>	
+</head>
+<body class="easyui-layout layout panel-noscroll">
+	<div class="panel layout-panel layout-panel-north" style="left: 0px; top: 0px; width: 100%;">
+		<div data-options="region:'north',border:false" style="height: 22px; width: 1919px;" title="" class="panel-body panel-body-noheader panel-body-noborder layout-body">
+			<div id="sys_top_panel">
+				<div class="login_header" style="overflow: hidden;     height: 22px;">
+					<div class="welcome">
+						<span class="fl ml12 span_position">欢迎来到后台管理中心>>用户信息管理</span> 
+							<span class="fr mr10"> 当前用户:<font color="red">${user!''}</font> 
+							| <a target="_top" href="/admin/logout" style="margin-right: 7px;">安全退出</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel layout-panel layout-panel-center layout-split-center" style="left: 108px; top: 22px; width: 1815px; height:99%; overflow-x: scroll">
+		<div class="panel-body panel-body-noheader panel-body-noborder layout-body panel-noscroll" style="width: 1815px; height: 100%;">
+			<div id="sys_main_tabs" class="easyui-tabs tabs-container" data-options="fit:true" style="width: 1815px; height: 100%;">
+				<iframe id = "sys_main_tabs_iframe" src="/view/admin/user.html" scrolling="yes" style="width: 100%; height: 100%;"></iframe>
+			</div>
+		</div>
+	</div>
+	<div class="panel layout-panel layout-panel-west layout-split-west" style="left: 0px; top: 22px; height:100%; width: 100px; display: block;">
+		<div class="panel-header" style="width: 100px; font-size:15px;">
+			<div class="panel-title" align="center" style="font-size:15px;">系统菜单</div>
+		</div>
+		<div id="" data-options="region:'west',split:true" title="" style="width: 100px; height: 95%; display: block;" class="panel-body layout-body panel-noscroll">
+				<ul>
+					<li class="manger_acc_first_menu_on" onclick="onMenu('/view/admin/user.html', $(this), '用户信息管理');">
+						<a href="javascript:void(0);"> 用户信息 </a>
+					</li>
+					<li class="manger_acc_first_menu" onclick="onMenu('/view/admin/product.html', $(this), '商品信息管理');">
+						<a href="javascript:void(0);"> 商品信息 </a>
+					</li>
+					<li class="manger_acc_first_menu" onclick="onMenu('/view/admin/recharge.html', $(this), '充值信息管理');">
+						<a href="javascript:void(0);"> 充值信息 </a>
+					</li>
+					<li class="manger_acc_first_menu" onclick="onMenu('/view/admin/requit.html', $(this), '申退信息管理');">
+						<a href="javascript:void(0);"> 申退信息 </a>
+					</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

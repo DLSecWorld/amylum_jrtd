@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户信息管理</title>
+    <link rel="stylesheet" href="/static/admin/css/style.css">
+    <link rel="stylesheet" href="/static/admin/css/paginate.css">
+    <script type="text/javascript" src="/static/common/js/jquery.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/jquery.paginate.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/index.js"></script>    
+    <script type="text/javascript" src="/static/admin/js/My97DatePicker/WdatePicker.js"></script>    
+    <script type="text/javascript">
+    	type = "user";
+    </script>
+</head>
+<body>
+    <div class="box">
+		<div class="search">
+			<form id = "form" action="javascript:;">
+	    		注册时间:<input type="text" autocomplete="off" id="addTime" name="addTime" value="" placeholder="注册时间" onclick="WdatePicker()">&nbsp;&nbsp;
+	    		注册城市:<input type="text" id="city" name="city" autocomplete="off" placeholder="注册城市">&nbsp;&nbsp;
+	    		状       态:
+	    		<select name="status" id="status">
+		    		<option value="">不限</option>
+		    		<option value="0">未认证</option>
+		    		<option value="1">审核中</option>
+		    		<option value="2">通过</option>
+		    		<option value="3">未通过</option>
+	    		</select>&nbsp;&nbsp;&nbsp;&nbsp;
+	    		<button id="submit" >查询</button>&nbsp;&nbsp;			
+	    		<button id="reset">重置</button>
+			</form>
+		</div>
+        <div class="tab">
+            <table class="man_ztab" border='1'>
+            	<thead id="thead"></thead>
+                <tbody id="tbody"></tbody> 
+            </table>
+        </div>
+		<div class="page">
+			<div id="pageTradeListDiv"></div>
+		</div>        
+    </div>
+    <script type="text/javascript">
+    	$("#reset").click(function() {
+    		$("#addTime").val("");
+    		$("#status").val("");
+    		$("#city").val("");    		
+    	});
+    </script>
+</body>
+</html>

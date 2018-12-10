@@ -1,0 +1,1594 @@
+<html class="pixel-ratio-3 retina ios ios-11 ios-11-0 ios-gt-10 ios-gt-9 ios-gt-8 ios-gt-7 ios-gt-6">
+<head>
+<title>今日推单</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="/static/common/img/favicon.ico">
+<link href="/static/common/css/font-awesome.min.css" rel="stylesheet">
+<link href="/static/common/css/jquery-weui.min.css" rel="stylesheet">
+<link href="/static/common/css/weui.min.css" rel="stylesheet">
+<link href="/static/common/css/verify.css" rel="stylesheet">
+<link href="/static/common/css/iosSelect.css" rel="stylesheet" >
+<style>
+* {
+	box-sizing: border-box;
+}
+
+html, body, #app {
+	font-size: 20px;
+	height: 100%
+}
+
+html, body {
+	line-height: 1.6 !important
+}
+
+.weui-toast {
+	margin-left: 0 !important;
+}
+
+#cnzz_stat_icon_1271494136 {
+	display: none;
+}
+
+.detail-header {
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: 400;
+	background: #1676e3;
+	color: #fff;
+	position: fixed;
+	width: 100vw;
+	top: 0;
+	z-index: 1;
+}
+
+.detail-header i {
+	color: #fff;
+}
+</style>
+<style type="text/css">
+._v-container[data-v-ecaca2b0] {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none
+}
+
+._v-container>._v-content[data-v-ecaca2b0] {
+	width: 100%;
+	-webkit-transform-origin: left top;
+	-webkit-transform: translateZ(0);
+	-moz-transform-origin: left top;
+	-moz-transform: translateZ(0);
+	-ms-transform-origin: left top;
+	-ms-transform: translateZ(0);
+	-o-transform-origin: left top;
+	-o-transform: translateZ(0);
+	transform-origin: left top;
+	transform: translateZ(0)
+}
+
+._v-container>._v-content>.pull-to-refresh-layer[data-v-ecaca2b0] {
+	width: 100%;
+	height: 60px;
+	margin-top: -60px;
+	text-align: center;
+	font-size: 16px;
+	color: #aaa
+}
+
+._v-container>._v-content>.loading-layer[data-v-ecaca2b0] {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 60px;
+	color: #aaa;
+	position: relative
+}
+
+._v-container>._v-content>.loading-layer>.no-data-text[data-v-ecaca2b0]
+	{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1
+}
+
+._v-container>._v-content>.loading-layer>.no-data-text[data-v-ecaca2b0],
+	._v-container>._v-content>.loading-layer>.spinner-holder[data-v-ecaca2b0]
+	{
+	opacity: 0;
+	transition: opacity .15s linear;
+	-webkit-transition: opacity .15s linear
+}
+
+._v-container>._v-content>.loading-layer>.no-data-text.active[data-v-ecaca2b0],
+	._v-container>._v-content>.loading-layer>.spinner-holder.active[data-v-ecaca2b0]
+	{
+	opacity: 1
+}
+
+._v-container>._v-content>.loading-layer .spinner-holder[data-v-ecaca2b0],
+	._v-container>._v-content>.pull-to-refresh-layer .spinner-holder[data-v-ecaca2b0]
+	{
+	text-align: center;
+	-webkit-font-smoothing: antialiased
+}
+
+._v-container>._v-content>.loading-layer .spinner-holder .arrow[data-v-ecaca2b0],
+	._v-container>._v-content>.pull-to-refresh-layer .spinner-holder .arrow[data-v-ecaca2b0]
+	{
+	width: 20px;
+	height: 20px;
+	margin: 8px auto 0;
+	-webkit-transform: translateZ(0) rotate(0deg);
+	transform: translateZ(0) rotate(0deg);
+	transition: transform .2s linear
+}
+
+._v-container>._v-content>.loading-layer .spinner-holder .text[data-v-ecaca2b0],
+	._v-container>._v-content>.pull-to-refresh-layer .spinner-holder .text[data-v-ecaca2b0]
+	{
+	display: block;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 20px;
+	color: #aaa
+}
+
+._v-container>._v-content>.loading-layer .spinner-holder .spinner[data-v-ecaca2b0],
+	._v-container>._v-content>.pull-to-refresh-layer .spinner-holder .spinner[data-v-ecaca2b0]
+	{
+	margin-top: 14px;
+	width: 32px;
+	height: 32px;
+	fill: #444;
+	stroke: #69717d
+}
+
+._v-container>._v-content>.pull-to-refresh-layer.active .spinner-holder .arrow[data-v-ecaca2b0]
+	{
+	-webkit-transform: translateZ(0) rotate(180deg);
+	transform: translateZ(0) rotate(180deg)
+}
+#oldTag[data-v-1fde3c5f] {
+	background: #f5f5f5;
+	height: 100vh
+}
+
+._v-container[data-v-1fde3c5f] {
+	background: #f5f5f5;
+	padding-top: 40px;
+	height: calc(100% - 55px) !important
+}
+
+._v-content[data-v-1fde3c5f] {
+	padding-bottom: 54px
+}
+
+.order-header[data-v-1fde3c5f] {
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: 400;
+	background: #1676e3;
+	color: #fff;
+	position: fixed;
+	width: 100vw;
+	top: 0;
+	z-index: 1
+}
+
+#oldTag i[data-v-1fde3c5f] {
+	color: #cecece
+}
+
+#oldTag .oldTag-header span[data-v-1fde3c5f] {
+	position: absolute;
+	left: 20px
+}
+
+.screen[data-v-1fde3c5f] {
+	width: 4em;
+	-webkit-box-flex: 1;
+	height: 30px;
+	padding-right: 10px;
+	position: fixed;
+	top: 5px;
+	right: 0;
+	border-radius: 15px 0 0 15px;
+	color: #fff;
+	z-index: 2;
+	font-size: 16px
+}
+
+.screen button[data-v-1fde3c5f] {
+	height: 100%;
+	border: none;
+	background: none;
+	color: #fff;
+	border-radius: 0 15px 15px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 16px
+}
+
+#oldTag .screen i[data-v-1fde3c5f] {
+	color: #fff
+}
+
+.swipe[data-v-1fde3c5f] {
+	height: 14vh;
+	margin-top: 5px
+}
+
+#oldTag li[data-v-1fde3c5f] {
+	list-style: none;
+	margin: 5px auto;
+	background: #fff
+}
+
+#oldTag .weui-cells[data-v-1fde3c5f] {
+	padding: 0;
+	background: #f5f5f5;
+	margin-top: 0
+}
+
+#oldTag a.weui-cell[data-v-1fde3c5f] {
+	padding: 8px 15px
+}
+
+#oldTag .weui-cell__hd[data-v-1fde3c5f] {
+	margin-right: 4px
+}
+
+#oldTag .weui-cell__hd img[data-v-1fde3c5f] {
+	width: 40px;
+	height: 40px
+}
+
+#oldTag .weui-cell__bd[data-v-1fde3c5f] {
+	position: relative
+}
+
+.wxloan[data-v-1fde3c5f] {
+	position: absolute;
+	width: 3.4em;
+	height: 2em;
+	top: 3px;
+	left: 3.5em
+}
+
+#oldTag .weui-cell__bd p[data-v-1fde3c5f] {
+	font-size: 16px;
+	font-weight: 400;
+	color: #7d7d7d
+}
+
+#oldTag .weui-cell__bd .mb5[data-v-1fde3c5f] {
+	margin-bottom: 5px
+}
+
+#oldTag .seller-name[data-v-1fde3c5f] {
+	display: inline-block;
+	font-weight: 800;
+	font-size: 16px;
+	color: #5a5a5a;
+	vertical-align: middle
+}
+
+.seller-tag[data-v-1fde3c5f] {
+	display: inline-block;
+	margin-left: 10px;
+	height: 20px;
+	line-height: 15px;
+	border-radius: 0;
+	border: 1px solid #1676e3;
+}
+
+.seller-tag span[data-v-1fde3c5f] {
+	padding: 0 5px;
+	font-size: 12px;
+	font-weight: 400;
+	color: #1676e3;
+	vertical-align: middle
+}
+
+.seller-info[data-v-1fde3c5f] {
+	margin-right: 10px;
+	font-weight: 700
+}
+
+.seller-info2[data-v-1fde3c5f] {
+	margin-right: 10px
+}
+
+.seller-info3[data-v-1fde3c5f] {
+	margin-left: 10px
+}
+
+.seller-bottom .weui-cell__ft[data-v-1fde3c5f] {
+	width: 5em;
+	height: 2.5em;
+	line-height: 2.5em;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 20px 0 0 20px;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto
+}
+
+#oldTag .weui-flex__item[data-v-1fde3c5f] {
+	font-size: 16px;
+	font-weight: 400;
+	color: #7d7d7d
+}
+
+.seller-bottom[data-v-1fde3c5f] {
+	position: relative
+}
+
+.cando[data-v-1fde3c5f] {
+	background: #1676e3;
+	color: #fff
+}
+
+#oldTag .menu .cannotdo[data-v-1fde3c5f] {
+	background: #ccc;
+	color: #fff
+}
+
+.seller-time[data-v-1fde3c5f] {
+	float: right
+}
+
+.picker-wrap[data-v-1fde3c5f] {
+	height: 38px;
+	display: -moz-box;
+	display: -webkit-box;
+	-webkit-box-orient: horizontal
+}
+
+.city-picker[data-v-1fde3c5f] {
+	width: 5em;
+	-webkit-box-flex: 1;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	position: fixed;
+	top: 5px;
+	border-radius: 0 15px 15px 0;
+	color: #fff;
+	z-index: 2;
+	font-size: 16px
+}
+
+#oldTag .city-picker i[data-v-1fde3c5f] {
+	color: #fff
+}
+
+.city-picker span[data-v-1fde3c5f] {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400
+}
+
+.city-picker input[data-v-1fde3c5f] {
+	width: 65%;
+	height: 100%;
+	border: none;
+	background-color: #1676e3;
+	color: #fff;
+	border-radius: 0 15px 15px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 16px
+}
+
+input[data-v-1fde3c5f]::-webkit-input-placeholder {
+	text-align: center;
+	color: #fff
+}
+
+.seller-picker[data-v-1fde3c5f] {
+	width: 0;
+	-webkit-box-flex: 2;
+	border-radius: 20px;
+	overflow: hidden;
+	margin: 4px
+}
+
+a.menu[data-v-1fde3c5f] {
+	background: #fff;
+	display: block;
+	margin-top: 5px;
+	position: relative;
+	overflow: hidden
+}
+
+.menu .tag[data-v-1fde3c5f] {
+	width: 4.4rem;
+	height: 4.4rem;
+	position: absolute;
+	background: #2a5fa3;
+	top: -45px;
+	right: -50px;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	z-index: 2;
+	-webkit-box-shadow: 10px 4px 5px #888;
+	box-shadow: 10px 4px 5px #888
+}
+
+.menu .tag span[data-v-1fde3c5f] {
+	position: absolute;
+	bottom: 0;
+	display: block;
+	width: 4.2rem;
+	font-size: .8rem;
+	font-weight: 400;
+	color: #fff;
+	text-align: center
+}
+
+.isPlay[data-v-1fde3c5f] {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	width: 60px;
+	height: 25px
+}
+</style>
+<style type="text/css">
+#footer[data-v-5247103c] {
+	position: fixed
+}
+
+#footer a[data-v-5247103c] {
+	border-left: 0 solid #c0bfc4
+}
+
+#footer a[data-v-5247103c]:first-child {
+	border-left: none
+}
+
+.weui-tabbar__icon[data-v-5247103c] {
+	width: 100%;
+	height: 24px;
+	position: relative
+}
+
+#footer .weui-tabbar__label[data-v-5247103c] {
+	font-size: 14px;
+	font-weight: 400
+}
+
+.router-link-active .weui-tabbar__icon>i[data-v-5247103c],
+	.router-link-active .weui-tabbar__label[data-v-5247103c], i.weui-tabbar__icon[data-v-5247103c]
+	{
+	color: #1676e3;
+}
+
+.fire[data-v-5247103c] {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	top: 0;
+	right: 18px
+}
+#restaurant[data-v-7ad21634] {
+	background: #f5f5f5;
+	height: 100%
+}
+
+._v-container[data-v-7ad21634] {
+	background: #f5f5f5;
+	padding-top: 80px;
+	height: calc(100% - 55px) !important
+}
+
+._v-content[data-v-7ad21634] {
+	padding-bottom: 54px
+}
+
+.header[data-v-7ad21634] {
+	position: fixed;
+	z-index: 1;
+	width: 100vw;
+	height: 40px;
+	background: #fff
+}
+
+.header-btn[data-v-7ad21634] {
+	margin: 5px auto;
+	width: 8rem;
+	height: 1.5rem;
+	border-radius: 5px;
+	border: 1px solid #1676e3;
+	background: #fff;
+	position: relative
+}
+
+.inner-btn[data-v-7ad21634] {
+	width: 4rem;
+	display: inline-block;
+	font-size: .8rem;
+	height: 1.4rem;
+	line-height: 1.4rem;
+	position: absolute;
+	text-align: center;
+	font-weight: 400;
+	color: #7d7d7d
+}
+
+.active_btn[data-v-7ad21634] {
+	background: #1676e3;
+	color: #f5f5f5
+}
+
+.left_btn[data-v-7ad21634] {
+	left: 0
+}
+
+.right_btn[data-v-7ad21634] {
+	right: 0
+}
+
+nav[data-v-7ad21634] {
+	width: 100vw;
+	height: 35px;
+	line-height: 35px;
+	background: #fff;
+	position: fixed;
+	top: 40px;
+	border-top: 1px solid #d9d9d9;
+	z-index: 1;
+	font-size: .8rem;
+	color: #7d7d7d;
+	font-weight: 400
+}
+
+.nav-tab[data-v-7ad21634] {
+	display: inline-block;
+	width: 21%;
+	text-align: center;
+	height: 35px
+}
+
+.nav-tab2[data-v-7ad21634] {
+	display: inline-block;
+	width: 8%;
+	text-align: center;
+	height: 35px
+}
+
+.active_tab[data-v-7ad21634] {
+	border-bottom: 2px solid #1676e3;
+}
+
+.moreTab[data-v-7ad21634] {
+	width: 100vw;
+	height: 5rem;
+	background: #5d5d5d;
+	opacity: .8;
+	padding: 1.2rem 0;
+	text-align: center
+}
+
+.moreTab .active_Moretab[data-v-7ad21634] {
+	background: #1676e3;
+	color: #fff;
+	outline: none
+}
+
+.moreTab button[data-v-7ad21634] {
+	width: 3.5rem;
+	height: 2rem;
+	font-size: .7rem;
+	color: #fff;
+	margin: 5px .8rem;
+	background: #5d5d5d;
+	opacity: .9;
+	border: 1px solid #ddd;
+	border-radius: 5px
+}
+
+.swiper-container[data-v-7ad21634] {
+	height: 4.8rem
+}
+
+#restaurant a.weui-cell[data-v-7ad21634] {
+	padding: 8px 15px
+}
+
+#restaurant .weui-cell__hd[data-v-7ad21634] {
+	margin-right: 4px
+}
+
+#restaurant .weui-cell__hd img[data-v-7ad21634] {
+	width: 40px;
+	height: 40px
+}
+
+#restaurant .weui-cell__bd[data-v-7ad21634] {
+	position: relative
+}
+
+.wxloan[data-v-7ad21634] {
+	position: absolute;
+	width: 3.4em;
+	height: 2em;
+	top: 0;
+	left: 3.5em
+}
+
+#restaurant .weui-cell__bd p[data-v-7ad21634] {
+	font-size: 16px;
+	font-weight: 400;
+	color: #7d7d7d
+}
+
+.cell-top[data-v-7ad21634] {
+	vertical-align: middle
+}
+
+.cell-top[data-v-7ad21634]:after {
+	content: ""
+}
+
+#restaurant .seller-name[data-v-7ad21634] {
+	display: inline-block;
+	font-weight: 800;
+	font-size: 16px;
+	color: #5a5a5a;
+	vertical-align: middle
+}
+
+.seller-tag[data-v-7ad21634] {
+	display: inline-block;
+	margin-left: 10px;
+	height: 20px;
+	line-height: 15px;
+	border-radius: 0;
+	border: 1px solid #1676e3;
+}
+
+.seller-tag span[data-v-7ad21634] {
+	padding: 0 5px;
+	font-size: 12px;
+	font-weight: 400;
+	color: #1676e3;
+	vertical-align: middle
+}
+
+.seller-info[data-v-7ad21634] {
+	margin-right: 10px;
+	font-weight: 700
+}
+
+.seller-info2[data-v-7ad21634] {
+	margin-right: 10px
+}
+
+.seller-info3[data-v-7ad21634] {
+	margin-left: 10px
+}
+
+.seller-bottom .weui-cell__ft[data-v-7ad21634] {
+	width: 5em;
+	height: 2.5em;
+	line-height: 2.5em;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 20px 0 0 20px;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto
+}
+
+.seller-bottom[data-v-7ad21634] {
+	position: relative
+}
+
+.cando[data-v-7ad21634] {
+	background: #1676e3;
+	color: #fff
+}
+
+.cannotdo[data-v-7ad21634] {
+	background: #ccc;
+	color: #fff
+}
+
+.seller-wxloan[data-v-7ad21634] {
+	float: right;
+	color: #20e2de;
+	margin-right: 25px
+}
+
+.seller-time[data-v-7ad21634] {
+	float: right
+}
+
+.picker-wrap[data-v-7ad21634] {
+	height: 38px;
+	display: -moz-box;
+	display: -webkit-box;
+	-webkit-box-orient: horizontal
+}
+
+.city-picker[data-v-7ad21634] {
+	width: 5.3em;
+	line-height: 30px;
+	padding-left: 10px;
+	border-radius: 0 10px 10px 0
+}
+
+.city-picker[data-v-7ad21634], .screen[data-v-7ad21634] {
+	-webkit-box-flex: 1;
+	height: 30px;
+	position: fixed;
+	top: 5px;
+	background: #fff;
+	color: #1676e3;
+	z-index: 2;
+	font-size: 16px
+}
+
+.screen[data-v-7ad21634] {
+	padding-right: 10px;
+	right: 0;
+	border-radius: 15px 0 0 15px
+}
+
+.screen button[data-v-7ad21634] {
+	height: 100%;
+	border: none;
+	background-color: #fff;
+	color: #1676e3;
+	border-radius: 0 15px 15px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 16px
+}
+
+#restaurant .city-picker i[data-v-7ad21634], #restaurant .screen i[data-v-7ad21634]
+	{
+	color: #1676e3;
+}
+
+.city-picker span[data-v-7ad21634] {
+	color: #1676e3;
+	font-size: 16px;
+	font-weight: 400
+}
+
+input[data-v-7ad21634]::-webkit-input-placeholder {
+	text-align: center;
+	color: #1676e3;
+}
+
+.seller-picker[data-v-7ad21634] {
+	width: 0;
+	-webkit-box-flex: 2;
+	border-radius: 20px;
+	overflow: hidden;
+	margin: 4px
+}
+
+a.menu[data-v-7ad21634] {
+	background: #fff;
+	display: block;
+	margin-top: 5px;
+	position: relative;
+	overflow: hidden
+}
+
+.menu .tag[data-v-7ad21634] {
+	width: 4.2rem;
+	height: 4.2rem;
+	position: absolute;
+	background: #2a5fa3;
+	top: -50px;
+	right: -50px;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	z-index: 2;
+	-webkit-box-shadow: 10px 4px 5px #888;
+	box-shadow: 10px 4px 5px #888
+}
+
+.menu .tag span[data-v-7ad21634] {
+	position: absolute;
+	bottom: 0;
+	display: block;
+	width: 4.2rem;
+	font-size: .7rem;
+	font-weight: 400;
+	color: #fff;
+	text-align: center
+}
+
+#restaurant i[data-v-7ad21634] {
+	color: #cecece
+}
+#map-detail[data-v-7d524fb0] {
+	background: #f5f3f3
+}
+
+#map-detail .detail-header span[data-v-7d524fb0] {
+	position: absolute;
+	left: 20px
+}
+
+.search-box[data-v-7d524fb0] {
+	width: 13rem;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	border-radius: 5px;
+	top: 5px;
+	position: fixed;
+	right: 1rem;
+	border: none;
+	background: #fbfbfb
+}
+
+.search-box__input[data-v-7d524fb0] {
+	outline: none;
+	border: none;
+	background: transparent;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	font-size: .8rem
+}
+
+.showLetter[data-v-7d524fb0] {
+	position: fixed;
+	color: #00c7c7;
+	width: 50px;
+	height: 50px;
+	top: 45%;
+	left: 45%;
+	border-radius: 50%;
+	border: 1px solid #00c7c7;
+	text-align: center;
+	display: none
+}
+
+.showLetter span[data-v-7d524fb0] {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px
+}
+
+.container[data-v-7d524fb0] {
+	width: 100%
+}
+
+.letter[data-v-7d524fb0] {
+	width: auto;
+	position: fixed;
+	top: 5rem;
+	right: 10px;
+	text-align: center
+}
+
+.letter ul[data-v-7d524fb0] {
+	list-style-type: none
+}
+
+.letter ul li a[data-v-7d524fb0] {
+	text-decoration: none;
+	color: #00c7c7;
+	font-size: 18px
+}
+
+.city[data-v-7d524fb0] {
+	width: 90%;
+	overflow: hidden;
+	padding: 45px 0 0 20px
+}
+
+.city-list[data-v-7d524fb0] {
+	width: 100%
+}
+
+.city-list .city-letter[data-v-7d524fb0] {
+	font-size: 20px;
+	display: inline-block;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e8ecf1;
+	width: 100%
+}
+
+.city-list p[data-v-7d524fb0] {
+	color: #6d6c6c;
+	width: 95%;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #e8ecf1;
+	cursor: pointer;
+	font-weight: 400
+}
+
+.letter li[data-v-7d524fb0] {
+	line-height: 1
+}
+#map-detail[data-v-893f6ccc] {
+	background: #f5f3f3
+}
+
+#map-detail .detail-header span[data-v-893f6ccc] {
+	position: absolute;
+	left: 20px
+}
+
+.search-box[data-v-893f6ccc] {
+	width: 13rem;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	border-radius: 5px;
+	top: 5px;
+	position: fixed;
+	right: 1rem;
+	border: none;
+	background: #fbfbfb
+}
+
+.search-box__input[data-v-893f6ccc] {
+	outline: none;
+	border: none;
+	background: transparent;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	width: 80%;
+	font-size: .8rem
+}
+
+.showLetter[data-v-893f6ccc] {
+	position: fixed;
+	color: #00c7c7;
+	width: 50px;
+	height: 50px;
+	top: 45%;
+	left: 45%;
+	border-radius: 50%;
+	border: 1px solid #00c7c7;
+	text-align: center;
+	display: none
+}
+
+.showLetter span[data-v-893f6ccc] {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px
+}
+
+.container[data-v-893f6ccc] {
+	width: 100%
+}
+
+.letter[data-v-893f6ccc] {
+	width: auto;
+	position: fixed;
+	top: 10%;
+	right: 10px;
+	text-align: center
+}
+
+.letter ul[data-v-893f6ccc] {
+	list-style-type: none
+}
+
+.letter ul li a[data-v-893f6ccc] {
+	text-decoration: none;
+	color: #00c7c7;
+	font-size: 18px
+}
+
+.city[data-v-893f6ccc] {
+	width: 100%;
+	overflow: hidden;
+	padding: 45px 0 0 20px
+}
+
+.city-list[data-v-893f6ccc] {
+	width: 100%
+}
+
+.city-list .city-letter[data-v-893f6ccc] {
+	font-size: 20px;
+	display: inline-block;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e8ecf1;
+	width: 100%
+}
+
+.city-list p[data-v-893f6ccc] {
+	color: #6d6c6c;
+	width: 95%;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #e8ecf1;
+	cursor: pointer;
+	font-weight: 400
+}
+
+.letter li[data-v-893f6ccc] {
+	line-height: 1.2
+}
+</style>
+</head>
+<body data-7m="7m_warp">
+	<div id="app">
+		<!---->
+		<div data-v-7d524fb0="" id="map-detail" class="content">
+			<div data-v-7d524fb0="" class="detail-header">
+				<span data-v-7d524fb0="">取消</span>
+<!-- 				<div data-v-7d524fb0="" class="search-box">
+					<i data-v-7d524fb0="" class="weui-icon-search"></i> <input data-v-7d524fb0="" type="search" placeholder="搜索城市" class="search-box__input">
+				</div> -->
+			</div>
+			<div data-v-7d524fb0="" id="allmap"></div>
+			<div data-v-7d524fb0="" id="showLetter" class="showLetter">
+				<span data-v-7d524fb0="">A</span>
+			</div>
+			<div data-v-7d524fb0="" class="letter">
+				<ul data-v-7d524fb0="">
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">★</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">A</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">B</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">C</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">D</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">E</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">F</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">G</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">H</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">J</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">K</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">L</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">M</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">N</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">P</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">Q</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">R</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">S</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">T</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">W</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">X</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">Y</a></li>
+					<li data-v-7d524fb0=""><a data-v-7d524fb0="" href="javascript:;">Z</a></li>
+				</ul>
+			</div>
+			<div data-v-7d524fb0="" class="container">
+				<div data-v-7d524fb0="" class="city">
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="★" class="city-letter">★热门城市</span>
+						<p data-v-7d524fb0="" data-id="">全国</p>
+						<p data-v-7d524fb0="" data-id="110100">北京</p>
+						<p data-v-7d524fb0="" data-id="310100">上海</p>
+						<p data-v-7d524fb0="" data-id="440100">广州</p>
+						<p data-v-7d524fb0="" data-id="440300">深圳</p>
+						<p data-v-7d524fb0="" data-id="610100">西安</p>
+						<p data-v-7d524fb0="" data-id="510100">成都</p>
+						<p data-v-7d524fb0="" data-id="120100">天津</p>
+						<p data-v-7d524fb0="" data-id="500100">重庆</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="A" class="city-letter">A</span>
+						<p data-v-7d524fb0="" data-id="152900">阿拉善盟</p>
+						<p data-v-7d524fb0="" data-id="210300">鞍山</p>
+						<p data-v-7d524fb0="" data-id="340800">安庆</p>
+						<p data-v-7d524fb0="" data-id="410500">安阳</p>
+						<p data-v-7d524fb0="" data-id="513200">阿坝</p>
+						<p data-v-7d524fb0="" data-id="520400">安顺</p>
+						<p data-v-7d524fb0="" data-id="610900">安康</p>
+						<p data-v-7d524fb0="" data-id="652900">阿克苏</p>
+						<p data-v-7d524fb0="" data-id="654300">阿勒泰</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="B" class="city-letter">B</span>
+						<p data-v-7d524fb0="" data-id="110100">北京</p>
+						<p data-v-7d524fb0="" data-id="130600">保定</p>
+						<p data-v-7d524fb0="" data-id="150200">包头</p>
+						<p data-v-7d524fb0="" data-id="150800">巴彦淖尔</p>
+						<p data-v-7d524fb0="" data-id="210500">本溪</p>
+						<p data-v-7d524fb0="" data-id="220600">白山</p>
+						<p data-v-7d524fb0="" data-id="220800">白城</p>
+						<p data-v-7d524fb0="" data-id="340300">蚌埠</p>
+						<p data-v-7d524fb0="" data-id="341600">亳州</p>
+						<p data-v-7d524fb0="" data-id="371600">滨州</p>
+						<p data-v-7d524fb0="" data-id="450500">北海</p>
+						<p data-v-7d524fb0="" data-id="451000">百色</p>
+						<p data-v-7d524fb0="" data-id="511900">巴中</p>
+						<p data-v-7d524fb0="" data-id="520500">毕节</p>
+						<p data-v-7d524fb0="" data-id="530500">保山</p>
+						<p data-v-7d524fb0="" data-id="610300">宝鸡</p>
+						<p data-v-7d524fb0="" data-id="620400">白银</p>
+						<p data-v-7d524fb0="" data-id="652700">博尔塔拉</p>
+						<p data-v-7d524fb0="" data-id="652701">博乐</p>
+						<p data-v-7d524fb0="" data-id="652800">巴音郭楞</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="C" class="city-letter">C</span>
+						<p data-v-7d524fb0="" data-id="130800">承德</p>
+						<p data-v-7d524fb0="" data-id="130900">沧州</p>
+						<p data-v-7d524fb0="" data-id="140400">长治</p>
+						<p data-v-7d524fb0="" data-id="150400">赤峰</p>
+						<p data-v-7d524fb0="" data-id="211300">朝阳</p>
+						<p data-v-7d524fb0="" data-id="220100">长春</p>
+						<p data-v-7d524fb0="" data-id="320400">常州</p>
+						<p data-v-7d524fb0="" data-id="340181">巢湖</p>
+						<p data-v-7d524fb0="" data-id="341100">滁州</p>
+						<p data-v-7d524fb0="" data-id="341700">池州</p>
+						<p data-v-7d524fb0="" data-id="430100">长沙</p>
+						<p data-v-7d524fb0="" data-id="430700">常德</p>
+						<p data-v-7d524fb0="" data-id="431000">郴州</p>
+						<p data-v-7d524fb0="" data-id="445100">潮州</p>
+						<p data-v-7d524fb0="" data-id="451400">崇左</p>
+						<p data-v-7d524fb0="" data-id="500100">重庆</p>
+						<p data-v-7d524fb0="" data-id="510100">成都</p>
+						<p data-v-7d524fb0="" data-id="532300">楚雄</p>
+						<p data-v-7d524fb0="" data-id="652300">昌吉</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="D" class="city-letter">D</span>
+						<p data-v-7d524fb0="" data-id="140200">大同</p>
+						<p data-v-7d524fb0="" data-id="210200">大连</p>
+						<p data-v-7d524fb0="" data-id="210600">丹东</p>
+						<p data-v-7d524fb0="" data-id="230600">大庆</p>
+						<p data-v-7d524fb0="" data-id="232700">大兴安岭</p>
+						<p data-v-7d524fb0="" data-id="370500">东营</p>
+						<p data-v-7d524fb0="" data-id="371400">德州</p>
+						<p data-v-7d524fb0="" data-id="441900">东莞</p>
+						<p data-v-7d524fb0="" data-id="460400">儋州</p>
+						<p data-v-7d524fb0="" data-id="469007">东方</p>
+						<p data-v-7d524fb0="" data-id="510600">德阳</p>
+						<p data-v-7d524fb0="" data-id="511700">达州</p>
+						<p data-v-7d524fb0="" data-id="522701">都匀</p>
+						<p data-v-7d524fb0="" data-id="532900">大理</p>
+						<p data-v-7d524fb0="" data-id="533100">德宏</p>
+						<p data-v-7d524fb0="" data-id="533400">迪庆</p>
+						<p data-v-7d524fb0="" data-id="621100">定西</p>
+						<p data-v-7d524fb0="" data-id="632802">德令哈</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="E" class="city-letter">E</span>
+						<p data-v-7d524fb0="" data-id="420700">鄂州</p>
+						<p data-v-7d524fb0="" data-id="422800">恩施</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="F" class="city-letter">F</span>
+						<p data-v-7d524fb0="" data-id="210400">抚顺</p>
+						<p data-v-7d524fb0="" data-id="210900">阜新</p>
+						<p data-v-7d524fb0="" data-id="341200">阜阳</p>
+						<p data-v-7d524fb0="" data-id="350100">福州</p>
+						<p data-v-7d524fb0="" data-id="361000">抚州</p>
+						<p data-v-7d524fb0="" data-id="440600">佛山</p>
+						<p data-v-7d524fb0="" data-id="450600">防城港</p>
+						<p data-v-7d524fb0="" data-id="500102">涪陵</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="G" class="city-letter">G</span>
+						<p data-v-7d524fb0="" data-id="360700">赣州</p>
+						<p data-v-7d524fb0="" data-id="440100">广州</p>
+						<p data-v-7d524fb0="" data-id="450300">桂林</p>
+						<p data-v-7d524fb0="" data-id="450800">贵港</p>
+						<p data-v-7d524fb0="" data-id="510800">广元</p>
+						<p data-v-7d524fb0="" data-id="511600">广安</p>
+						<p data-v-7d524fb0="" data-id="513300">甘孜</p>
+						<p data-v-7d524fb0="" data-id="520100">贵阳</p>
+						<p data-v-7d524fb0="" data-id="623000">甘南</p>
+						<p data-v-7d524fb0="" data-id="632521">共和</p>
+						<p data-v-7d524fb0="" data-id="632600">果洛</p>
+						<p data-v-7d524fb0="" data-id="632801">格尔木</p>
+						<p data-v-7d524fb0="" data-id="640400">固原</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="H" class="city-letter">H</span>
+						<p data-v-7d524fb0="" data-id="130400">邯郸</p>
+						<p data-v-7d524fb0="" data-id="131100">衡水</p>
+						<p data-v-7d524fb0="" data-id="150100">呼和浩特</p>
+						<p data-v-7d524fb0="" data-id="150700">呼伦贝尔</p>
+						<p data-v-7d524fb0="" data-id="150702">海拉尔</p>
+						<p data-v-7d524fb0="" data-id="152200">兴安盟</p>
+						<p data-v-7d524fb0="" data-id="211400">葫芦岛</p>
+						<p data-v-7d524fb0="" data-id="222404">珲春</p>
+						<p data-v-7d524fb0="" data-id="230100">哈尔滨</p>
+						<p data-v-7d524fb0="" data-id="230400">鹤岗</p>
+						<p data-v-7d524fb0="" data-id="231100">黑河</p>
+						<p data-v-7d524fb0="" data-id="320800">淮安</p>
+						<p data-v-7d524fb0="" data-id="330100">杭州</p>
+						<p data-v-7d524fb0="" data-id="330500">湖州</p>
+						<p data-v-7d524fb0="" data-id="340100">合肥</p>
+						<p data-v-7d524fb0="" data-id="340400">淮南</p>
+						<p data-v-7d524fb0="" data-id="340600">淮北</p>
+						<p data-v-7d524fb0="" data-id="341000">黄山</p>
+						<p data-v-7d524fb0="" data-id="371700">菏泽</p>
+						<p data-v-7d524fb0="" data-id="410600">鹤壁</p>
+						<p data-v-7d524fb0="" data-id="411526">潢川</p>
+						<p data-v-7d524fb0="" data-id="420200">黄石</p>
+						<p data-v-7d524fb0="" data-id="421100">黄冈</p>
+						<p data-v-7d524fb0="" data-id="430400">衡阳</p>
+						<p data-v-7d524fb0="" data-id="431200">怀化</p>
+						<p data-v-7d524fb0="" data-id="441300">惠州</p>
+						<p data-v-7d524fb0="" data-id="441600">河源</p>
+						<p data-v-7d524fb0="" data-id="451100">贺州</p>
+						<p data-v-7d524fb0="" data-id="451200">河池</p>
+						<p data-v-7d524fb0="" data-id="460100">海口</p>
+						<p data-v-7d524fb0="" data-id="532500">红河</p>
+						<p data-v-7d524fb0="" data-id="610700">汉中</p>
+						<p data-v-7d524fb0="" data-id="630200">海东</p>
+						<p data-v-7d524fb0="" data-id="632200">海北</p>
+						<p data-v-7d524fb0="" data-id="632223">海晏</p>
+						<p data-v-7d524fb0="" data-id="632300">黄南</p>
+						<p data-v-7d524fb0="" data-id="632500">海南</p>
+						<p data-v-7d524fb0="" data-id="632800">海西</p>
+						<p data-v-7d524fb0="" data-id="650500">哈密</p>
+						<p data-v-7d524fb0="" data-id="653200">和田</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="I" class="city-letter">I</span>
+						<p data-v-7d524fb0="" data-id="654000">伊犁</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="J" class="city-letter">J</span>
+						<p data-v-7d524fb0="" data-id="140500">晋城</p>
+						<p data-v-7d524fb0="" data-id="140700">晋中</p>
+						<p data-v-7d524fb0="" data-id="150902">集宁</p>
+						<p data-v-7d524fb0="" data-id="210700">锦州</p>
+						<p data-v-7d524fb0="" data-id="220200">吉林</p>
+						<p data-v-7d524fb0="" data-id="230300">鸡西</p>
+						<p data-v-7d524fb0="" data-id="230800">佳木斯</p>
+						<p data-v-7d524fb0="" data-id="330400">嘉兴</p>
+						<p data-v-7d524fb0="" data-id="330700">金华</p>
+						<p data-v-7d524fb0="" data-id="360200">景德镇</p>
+						<p data-v-7d524fb0="" data-id="360400">九江</p>
+						<p data-v-7d524fb0="" data-id="360800">吉安</p>
+						<p data-v-7d524fb0="" data-id="370100">济南</p>
+						<p data-v-7d524fb0="" data-id="370800">济宁</p>
+						<p data-v-7d524fb0="" data-id="410800">焦作</p>
+						<p data-v-7d524fb0="" data-id="419001">济源</p>
+						<p data-v-7d524fb0="" data-id="420800">荆门</p>
+						<p data-v-7d524fb0="" data-id="421000">荆州</p>
+						<p data-v-7d524fb0="" data-id="433101">吉首</p>
+						<p data-v-7d524fb0="" data-id="440700">江门</p>
+						<p data-v-7d524fb0="" data-id="445200">揭阳</p>
+						<p data-v-7d524fb0="" data-id="620200">嘉峪关</p>
+						<p data-v-7d524fb0="" data-id="620300">金昌</p>
+						<p data-v-7d524fb0="" data-id="620900">酒泉</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="K" class="city-letter">K</span>
+						<p data-v-7d524fb0="" data-id="410200">开封</p>
+						<p data-v-7d524fb0="" data-id="522601">凯里</p>
+						<p data-v-7d524fb0="" data-id="530100">昆明</p>
+						<p data-v-7d524fb0="" data-id="650200">克拉玛依</p>
+						<p data-v-7d524fb0="" data-id="652801">库尔勒</p>
+						<p data-v-7d524fb0="" data-id="653000">克孜勒苏</p>
+						<p data-v-7d524fb0="" data-id="653100">喀什</p>
+						<p data-v-7d524fb0="" data-id="654003">奎屯</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="L" class="city-letter">L</span>
+						<p data-v-7d524fb0="" data-id="131000">廊坊</p>
+						<p data-v-7d524fb0="" data-id="141000">临汾</p>
+						<p data-v-7d524fb0="" data-id="141100">吕梁</p>
+						<p data-v-7d524fb0="" data-id="150802">临河</p>
+						<p data-v-7d524fb0="" data-id="211000">辽阳</p>
+						<p data-v-7d524fb0="" data-id="220400">辽源</p>
+						<p data-v-7d524fb0="" data-id="320700">连云港</p>
+						<p data-v-7d524fb0="" data-id="331100">丽水</p>
+						<p data-v-7d524fb0="" data-id="341500">六安</p>
+						<p data-v-7d524fb0="" data-id="350800">龙岩</p>
+						<p data-v-7d524fb0="" data-id="371200">莱芜</p>
+						<p data-v-7d524fb0="" data-id="371300">临沂</p>
+						<p data-v-7d524fb0="" data-id="371500">聊城</p>
+						<p data-v-7d524fb0="" data-id="410300">洛阳</p>
+						<p data-v-7d524fb0="" data-id="411100">漯河</p>
+						<p data-v-7d524fb0="" data-id="431300">娄底</p>
+						<p data-v-7d524fb0="" data-id="450200">柳州</p>
+						<p data-v-7d524fb0="" data-id="451300">来宾</p>
+						<p data-v-7d524fb0="" data-id="510500">泸州</p>
+						<p data-v-7d524fb0="" data-id="511100">乐山</p>
+						<p data-v-7d524fb0="" data-id="513400">凉山</p>
+						<p data-v-7d524fb0="" data-id="520200">六盘水</p>
+						<p data-v-7d524fb0="" data-id="530700">丽江</p>
+						<p data-v-7d524fb0="" data-id="530900">临沧</p>
+						<p data-v-7d524fb0="" data-id="540100">拉萨</p>
+						<p data-v-7d524fb0="" data-id="620100">兰州</p>
+						<p data-v-7d524fb0="" data-id="621200">陇南</p>
+						<p data-v-7d524fb0="" data-id="622900">临夏</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="M" class="city-letter">M</span>
+						<p data-v-7d524fb0="" data-id="220581">梅河口</p>
+						<p data-v-7d524fb0="" data-id="231000">牡丹江</p>
+						<p data-v-7d524fb0="" data-id="340500">马鞍山</p>
+						<p data-v-7d524fb0="" data-id="440900">茂名</p>
+						<p data-v-7d524fb0="" data-id="441400">梅州</p>
+						<p data-v-7d524fb0="" data-id="510700">绵阳</p>
+						<p data-v-7d524fb0="" data-id="511400">眉山</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="N" class="city-letter">N</span>
+						<p data-v-7d524fb0="" data-id="320100">南京</p>
+						<p data-v-7d524fb0="" data-id="320600">南通</p>
+						<p data-v-7d524fb0="" data-id="330200">宁波</p>
+						<p data-v-7d524fb0="" data-id="350700">南平</p>
+						<p data-v-7d524fb0="" data-id="350900">宁德</p>
+						<p data-v-7d524fb0="" data-id="360100">南昌</p>
+						<p data-v-7d524fb0="" data-id="411300">南阳</p>
+						<p data-v-7d524fb0="" data-id="450100">南宁</p>
+						<p data-v-7d524fb0="" data-id="511000">内江</p>
+						<p data-v-7d524fb0="" data-id="511300">南充</p>
+						<p data-v-7d524fb0="" data-id="533300">怒江</p>
+						<p data-v-7d524fb0="" data-id="540400">林芝</p>
+						<p data-v-7d524fb0="" data-id="540600">那曲</p>
+						<p data-v-7d524fb0="" data-id="542500">阿里</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="O" class="city-letter">O</span>
+						<p data-v-7d524fb0="" data-id="150600">鄂尔多斯</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="P" class="city-letter">P</span>
+						<p data-v-7d524fb0="" data-id="211100">盘锦</p>
+						<p data-v-7d524fb0="" data-id="350300">莆田</p>
+						<p data-v-7d524fb0="" data-id="360300">萍乡</p>
+						<p data-v-7d524fb0="" data-id="410400">平顶山</p>
+						<p data-v-7d524fb0="" data-id="410900">濮阳</p>
+						<p data-v-7d524fb0="" data-id="510400">攀枝花</p>
+						<p data-v-7d524fb0="" data-id="530800">普洱</p>
+						<p data-v-7d524fb0="" data-id="620800">平凉</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="Q" class="city-letter">Q</span>
+						<p data-v-7d524fb0="" data-id="130300">秦皇岛</p>
+						<p data-v-7d524fb0="" data-id="230200">齐齐哈尔</p>
+						<p data-v-7d524fb0="" data-id="230900">七台河</p>
+						<p data-v-7d524fb0="" data-id="330800">衢州</p>
+						<p data-v-7d524fb0="" data-id="350500">泉州</p>
+						<p data-v-7d524fb0="" data-id="370200">青岛</p>
+						<p data-v-7d524fb0="" data-id="429005">潜江</p>
+						<p data-v-7d524fb0="" data-id="441800">清远</p>
+						<p data-v-7d524fb0="" data-id="450700">钦州</p>
+						<p data-v-7d524fb0="" data-id="469002">琼海</p>
+						<p data-v-7d524fb0="" data-id="500114">黔江</p>
+						<p data-v-7d524fb0="" data-id="522300">黔西南</p>
+						<p data-v-7d524fb0="" data-id="522600">黔东南</p>
+						<p data-v-7d524fb0="" data-id="522700">黔南</p>
+						<p data-v-7d524fb0="" data-id="530300">曲靖</p>
+						<p data-v-7d524fb0="" data-id="540300">昌都</p>
+						<p data-v-7d524fb0="" data-id="621000">庆阳</p>
+						<p data-v-7d524fb0="" data-id="654200">塔城</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="R" class="city-letter">R</span>
+						<p data-v-7d524fb0="" data-id="371100">日照</p>
+						<p data-v-7d524fb0="" data-id="540200">日喀则</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="S" class="city-letter">S</span>
+						<p data-v-7d524fb0="" data-id="130100">石家庄</p>
+						<p data-v-7d524fb0="" data-id="140600">朔州</p>
+						<p data-v-7d524fb0="" data-id="210100">沈阳</p>
+						<p data-v-7d524fb0="" data-id="220300">四平</p>
+						<p data-v-7d524fb0="" data-id="220700">松原</p>
+						<p data-v-7d524fb0="" data-id="230500">双鸭山</p>
+						<p data-v-7d524fb0="" data-id="231200">绥化</p>
+						<p data-v-7d524fb0="" data-id="310100">上海</p>
+						<p data-v-7d524fb0="" data-id="320500">苏州</p>
+						<p data-v-7d524fb0="" data-id="321300">宿迁</p>
+						<p data-v-7d524fb0="" data-id="330600">绍兴</p>
+						<p data-v-7d524fb0="" data-id="341300">宿州</p>
+						<p data-v-7d524fb0="" data-id="350400">三明</p>
+						<p data-v-7d524fb0="" data-id="361100">上饶</p>
+						<p data-v-7d524fb0="" data-id="411200">三门峡</p>
+						<p data-v-7d524fb0="" data-id="411400">商丘</p>
+						<p data-v-7d524fb0="" data-id="420300">十堰</p>
+						<p data-v-7d524fb0="" data-id="421300">随州</p>
+						<p data-v-7d524fb0="" data-id="429021">神农架</p>
+						<p data-v-7d524fb0="" data-id="430500">邵阳</p>
+						<p data-v-7d524fb0="" data-id="440200">韶关</p>
+						<p data-v-7d524fb0="" data-id="440300">深圳</p>
+						<p data-v-7d524fb0="" data-id="440500">汕头</p>
+						<p data-v-7d524fb0="" data-id="441500">汕尾</p>
+						<p data-v-7d524fb0="" data-id="460200">三亚</p>
+						<p data-v-7d524fb0="" data-id="460300">三沙</p>
+						<p data-v-7d524fb0="" data-id="510900">遂宁</p>
+						<p data-v-7d524fb0="" data-id="530802">思茅</p>
+						<p data-v-7d524fb0="" data-id="540500">山南</p>
+						<p data-v-7d524fb0="" data-id="611000">商洛</p>
+						<p data-v-7d524fb0="" data-id="611002">商州</p>
+						<p data-v-7d524fb0="" data-id="640200">石嘴山</p>
+						<p data-v-7d524fb0="" data-id="659001">石河子</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="T" class="city-letter">T</span>
+						<p data-v-7d524fb0="" data-id="120100">天津</p>
+						<p data-v-7d524fb0="" data-id="130200">唐山</p>
+						<p data-v-7d524fb0="" data-id="140100">太原</p>
+						<p data-v-7d524fb0="" data-id="150500">通辽</p>
+						<p data-v-7d524fb0="" data-id="211200">铁岭</p>
+						<p data-v-7d524fb0="" data-id="220500">通化</p>
+						<p data-v-7d524fb0="" data-id="321200">泰州</p>
+						<p data-v-7d524fb0="" data-id="331000">台州</p>
+						<p data-v-7d524fb0="" data-id="340700">铜陵</p>
+						<p data-v-7d524fb0="" data-id="370900">泰安</p>
+						<p data-v-7d524fb0="" data-id="429006">天门</p>
+						<p data-v-7d524fb0="" data-id="520600">铜仁</p>
+						<p data-v-7d524fb0="" data-id="610200">铜川</p>
+						<p data-v-7d524fb0="" data-id="620500">天水</p>
+						<p data-v-7d524fb0="" data-id="650400">吐鲁番</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="U" class="city-letter">U</span>
+						<p data-v-7d524fb0="" data-id="150900">乌兰察布</p>
+						<p data-v-7d524fb0="" data-id="650100">乌鲁木齐</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="W" class="city-letter">W</span>
+						<p data-v-7d524fb0="" data-id="150300">乌海</p>
+						<p data-v-7d524fb0="" data-id="152201">乌兰浩特</p>
+						<p data-v-7d524fb0="" data-id="320200">无锡</p>
+						<p data-v-7d524fb0="" data-id="330300">温州</p>
+						<p data-v-7d524fb0="" data-id="340200">芜湖</p>
+						<p data-v-7d524fb0="" data-id="370700">潍坊</p>
+						<p data-v-7d524fb0="" data-id="371000">威海</p>
+						<p data-v-7d524fb0="" data-id="420100">武汉</p>
+						<p data-v-7d524fb0="" data-id="450400">梧州</p>
+						<p data-v-7d524fb0="" data-id="469001">五指山</p>
+						<p data-v-7d524fb0="" data-id="469005">文昌</p>
+						<p data-v-7d524fb0="" data-id="469006">万宁</p>
+						<p data-v-7d524fb0="" data-id="500101">万州</p>
+						<p data-v-7d524fb0="" data-id="532600">文山</p>
+						<p data-v-7d524fb0="" data-id="610500">渭南</p>
+						<p data-v-7d524fb0="" data-id="620600">武威</p>
+						<p data-v-7d524fb0="" data-id="640300">吴忠</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="X" class="city-letter">X</span>
+						<p data-v-7d524fb0="" data-id="130500">邢台</p>
+						<p data-v-7d524fb0="" data-id="140900">忻州</p>
+						<p data-v-7d524fb0="" data-id="152500">锡林郭勒盟</p>
+						<p data-v-7d524fb0="" data-id="152502">锡林浩特</p>
+						<p data-v-7d524fb0="" data-id="320300">徐州</p>
+						<p data-v-7d524fb0="" data-id="341800">宣城</p>
+						<p data-v-7d524fb0="" data-id="350200">厦门</p>
+						<p data-v-7d524fb0="" data-id="360500">新余</p>
+						<p data-v-7d524fb0="" data-id="410700">新乡</p>
+						<p data-v-7d524fb0="" data-id="411000">许昌</p>
+						<p data-v-7d524fb0="" data-id="411500">信阳</p>
+						<p data-v-7d524fb0="" data-id="420600">襄阳</p>
+						<p data-v-7d524fb0="" data-id="420900">孝感</p>
+						<p data-v-7d524fb0="" data-id="421200">咸宁</p>
+						<p data-v-7d524fb0="" data-id="429004">仙桃</p>
+						<p data-v-7d524fb0="" data-id="430300">湘潭</p>
+						<p data-v-7d524fb0="" data-id="433100">湘西</p>
+						<p data-v-7d524fb0="" data-id="513401">西昌</p>
+						<p data-v-7d524fb0="" data-id="522301">兴义</p>
+						<p data-v-7d524fb0="" data-id="532800">西双版纳</p>
+						<p data-v-7d524fb0="" data-id="610100">西安</p>
+						<p data-v-7d524fb0="" data-id="610400">咸阳</p>
+						<p data-v-7d524fb0="" data-id="630100">西宁</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="Y" class="city-letter">Y</span>
+						<p data-v-7d524fb0="" data-id="140300">阳泉</p>
+						<p data-v-7d524fb0="" data-id="140800">运城</p>
+						<p data-v-7d524fb0="" data-id="210800">营口</p>
+						<p data-v-7d524fb0="" data-id="222400">延边</p>
+						<p data-v-7d524fb0="" data-id="222401">延吉</p>
+						<p data-v-7d524fb0="" data-id="230700">伊春</p>
+						<p data-v-7d524fb0="" data-id="320900">盐城</p>
+						<p data-v-7d524fb0="" data-id="321000">扬州</p>
+						<p data-v-7d524fb0="" data-id="360600">鹰潭</p>
+						<p data-v-7d524fb0="" data-id="360900">宜春</p>
+						<p data-v-7d524fb0="" data-id="370600">烟台</p>
+						<p data-v-7d524fb0="" data-id="420500">宜昌</p>
+						<p data-v-7d524fb0="" data-id="430600">岳阳</p>
+						<p data-v-7d524fb0="" data-id="430900">益阳</p>
+						<p data-v-7d524fb0="" data-id="431100">永州</p>
+						<p data-v-7d524fb0="" data-id="441700">阳江</p>
+						<p data-v-7d524fb0="" data-id="445300">云浮</p>
+						<p data-v-7d524fb0="" data-id="450900">玉林</p>
+						<p data-v-7d524fb0="" data-id="511500">宜宾</p>
+						<p data-v-7d524fb0="" data-id="511800">雅安</p>
+						<p data-v-7d524fb0="" data-id="530400">玉溪</p>
+						<p data-v-7d524fb0="" data-id="610600">延安</p>
+						<p data-v-7d524fb0="" data-id="610800">榆林</p>
+						<p data-v-7d524fb0="" data-id="632700">玉树</p>
+						<p data-v-7d524fb0="" data-id="640100">银川</p>
+					</div>
+					<div data-v-7d524fb0="" class="city-list">
+						<span data-v-7d524fb0="" id="Z" class="city-letter">Z</span>
+						<p data-v-7d524fb0="" data-id="130700">张家口</p>
+						<p data-v-7d524fb0="" data-id="321100">镇江</p>
+						<p data-v-7d524fb0="" data-id="330900">舟山</p>
+						<p data-v-7d524fb0="" data-id="350600">漳州</p>
+						<p data-v-7d524fb0="" data-id="370300">淄博</p>
+						<p data-v-7d524fb0="" data-id="370400">枣庄</p>
+						<p data-v-7d524fb0="" data-id="410100">郑州</p>
+						<p data-v-7d524fb0="" data-id="411600">周口</p>
+						<p data-v-7d524fb0="" data-id="411700">驻马店</p>
+						<p data-v-7d524fb0="" data-id="430200">株洲</p>
+						<p data-v-7d524fb0="" data-id="430800">张家界</p>
+						<p data-v-7d524fb0="" data-id="440400">珠海</p>
+						<p data-v-7d524fb0="" data-id="440800">湛江</p>
+						<p data-v-7d524fb0="" data-id="441200">肇庆</p>
+						<p data-v-7d524fb0="" data-id="442000">中山</p>
+						<p data-v-7d524fb0="" data-id="510300">自贡</p>
+						<p data-v-7d524fb0="" data-id="512000">资阳</p>
+						<p data-v-7d524fb0="" data-id="520300">遵义</p>
+						<p data-v-7d524fb0="" data-id="530600">昭通</p>
+						<p data-v-7d524fb0="" data-id="620700">张掖</p>
+						<p data-v-7d524fb0="" data-id="640500">中卫</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="type" value="${type}" />
+	<script src="/static/common/js/jquery.min.js"></script>
+	<script src="/static/common/js/polyfill.min.js"></script>
+	<script src="/static/common/js/jquery-weui.min.js"></script>
+	<script src="/static/common/js/areaData.js"></script>
+	<script src="/static/common/js/iosSelect.js"></script>
+	<script src="/static/common/js/fastclick.js"></script>
+	<script>
+		$(function() {
+			$("p[data-id]").on("click", function() {
+				var type = $("#type").val();
+				var city = $(this).text();			
+				if (type == 1) {
+					window.location.href = "/home?city=" + city;
+				} else if (type == 2) {
+					window.location.href = "/td?city=" + city;
+				} 
+			});
+			$("span[data-v-7d524fb0]").click(function() {
+				window.location.href="javascript:history.go(-1)";
+			});
+			$("li[data-v-7d524fb0]").on("click", function() {
+				var id = $(this).text();
+				$("#" + id)
+			});
+		});
+    </script>
+</body>
+</html>

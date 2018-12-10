@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangku.miaodan.core.dao.TokenMapper">
+ 
+	<insert id="insert" parameterType="com.wangku.miaodan.core.model.Token">
+		INSERT INTO jrtd_login_info(mobile, ticket, verify_code, verify_invalid_time)  
+		values(#{mobile}, #{ticket}, #{verifyCode}, #{verifyInvalidTime}) 
+		ON DUPLICATE key update ticket = #{ticket}, verify_code = #{verifyCode}, verify_invalid_time = #{verifyInvalidTime}	
+	</insert>
+	
+	<update id="update" parameterType="com.wangku.miaodan.core.model.Token">
+		UPDATE jrtd_login_info
+		SET ticket = #{ticket},
+		    verify_code = #{verifyCode},
+		    verify_invalid_time = #{verifyInvalidTime}
+		WHERE mobile = #{mobile}
+	</update>
+	
+	<select id="getDetailByToken" parameterType="com.wangku.miaodan.core.model.Token" resultType="com.wangku.miaodan.core.model.Token">
+		select mobile, ticket, verify_code verifyCode, verify_invalid_time verifyInvalidTime
+		from jrtd_login_info 
+		WHERE 1 = 1	
+		<if test="ticket != null">
+			and ticket = #{ticket}
+		</if>	
+		<if test="verifyCode != null">
+			and verify_code  = #{verifyCode}
+		</if>
+		<if test="verifyInvalidTime > 0">
+			and verify_invalid_time = #{verifyInvalidTime}
+		</if>
+		<if test="mobile != null">
+			and mobile = #{mobile}
+		</if>
+		limit 1
+	</select>	
+ 
+</mapper>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC 
+"-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+<generatorConfiguration>  
+	 <!-- 驱动的绝对路径 -->  
+    <classPathEntry location="D:\maven_jar\mysql\mysql-connector-java\5.1.18\mysql-connector-java-5.1.18.jar" />  
+    <context id="context1">  
+        <commentGenerator>  
+            <property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->  
+            <property name="suppressDate" value="false" /> <!-- 是否生成注释代时间戳 -->  
+        </commentGenerator>  
+        
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+            connectionURL="jdbc:mysql://47.105.165.219:3306/test" 
+            userId="root"  
+            password="123456" />  
+              
+        <!-- targetPackage是目标包名,  targetProject是包所在的位置-->  
+        <!-- javaModelGenerator生成的是实体类,  sqlMapGenerator生成的是映射文件,  javaClientGenerator生成的是dao -->  
+        <javaModelGenerator targetPackage="com.wangku.miaodan.core.model"  
+            targetProject="miaodan\src\main\java" />  
+        <sqlMapGenerator targetPackage="com.wangku.miaodan.core.mappers"  
+            targetProject="miaodan\src\main\java" />  
+        <javaClientGenerator targetPackage="com.wangku.miaodan.core.dao"  
+            targetProject="miaodan\src\main\java" type="XMLMAPPER" />  
+              
+        <!-- domainObjectName是表对应的实体类名,  tableName是对应的表名-->  
+        <!-- table可以配置多个,enable*几个参数是为了自动生成一些额外的sql操作,可以关闭-->  
+<!--         <table domainObjectName="ChainMemberProvinceDistribute" tableName="chain_member_province_distribute"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--         <table domainObjectName="ChainMemberTurnoverCnt" tableName="chain_member_turnover_cnt"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--         <table domainObjectName="ChainMemberDistributeCnt" tableName="chain_member_distribute_cnt"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>   -->
+        
+<!--         <table domainObjectName="ChainMemberDealCnt" tableName="chain_member_deal_cnt"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--          <table domainObjectName="ChainTradeOrderMoney" tableName="chain_trade_order_money"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--          <table domainObjectName="ChainQuote" tableName="chain_quote"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--          <table domainObjectName="ChainTradeMonth" tableName="chain_trade_month"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--          <table domainObjectName="ChainPriceTrend" tableName="chain_price_trend"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--         <table domainObjectName="ChainPriceLimit" tableName="chain_price_limit"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--          <table domainObjectName="HighQualityCompany" tableName="high_quality_company"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+<!--         <table domainObjectName="SupplyPriceData" tableName="supply_price_data"   -->
+<!--             enableCountByExample="false" enableUpdateByExample="false"   -->
+<!--             enableDeleteByExample="false" enableSelectByExample="false"   -->
+<!--             selectByExampleQueryId="false">   -->
+<!--         </table>  -->
+        
+        <table domainObjectName="AuthUser" tableName="jrtd_auth_manager"  
+            enableCountByExample="false" enableUpdateByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            selectByExampleQueryId="false">  
+        </table> 
+    </context>  
+</generatorConfiguration>  

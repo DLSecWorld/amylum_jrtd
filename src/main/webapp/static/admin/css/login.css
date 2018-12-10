@@ -1,0 +1,18 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.wrapper_login { width:100%; height:100%; background:url(/static/admin/images/m_bg.gif) repeat-x;}
+.wrapper_login .cont { width:1000px; height:800px; margin:0 auto; background:url(/static/admin/images/login_bg.gif) no-repeat;}
+.wrapper_login .cont h2 { margin:257px 0 0 279px; width:440px; height:39px; font:600 14px/39px "宋体"; text-align:center; display:inline-block; color:#fff;}
+.wrapper_login .cont .logink { float:left; margin:18px 0 0 436px; _margin-left:216px; width:274px; height:166px; text-align:left; }
+.wrapper_login .cont .logink li { margin:5px 0; float:left;}
+.wrapper_login .cont .logink li label { width:48px; height:26px; line-height:26px; display:inline-block; text-align:right; color:#333; float:left;}
+.wrapper_login .cont .logink li input.text { height:24px; width:176px; border:1px solid #c6def3; margin-left:4px; vertical-align:middle; line-height:24px; background:#e3f2ff; padding-left:6px;}
+.wrapper_login .cont .logink li input.yzm { width:62px;}
+.wrapper_login .cont .logink li img { vertical-align:middle;}
+
+a.yzm_blue {color:#2776af; font-size:12px; font-weight:100; display:inline-block;}
+a.yzm_blue:hover { text-decoration:underline;}
+.ml6 { margin-left:6px;}
+
+.btn_dl {border:none;margin-left:54px; width:78px; height:29px; background:url(/static/admin/images/btn03.gif) no-repeat; font:100 14px/29px "宋体"; text-align:center; display:inline-block; color:#fff;}
